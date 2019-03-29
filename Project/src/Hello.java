@@ -19,7 +19,7 @@ public class Hello {
 		System.out.println(num2);
 		System.out.println(isEven); */
 		
-		//MAX_SIZE ¶ó´Â »ó¼ö¿¡ ¸®ÅÍ·² 10ÀÇ °ªÀ» ÀúÀå
+		//MAX_SIZE ë¼ëŠ” ìƒìˆ˜ì— ë¦¬í„°ëŸ´ 10ì˜ ê°’ì„ ì €ì¥
 		/*final int MAX_SIZE = 10;
 		int num1 = 10;
 		long num2 =10L;
@@ -35,8 +35,8 @@ public class Hello {
 		System.out.println(op);
 		*/
 		
-		/*»ê¼ú¿¬»êÀÚ /
-		 * Á¤¼ö/Á¤¼ö -> ¸í½ÃÀû Çüº¯È¯À» ÇØÁà¾ß ¿øÇÏ´Â °ªÀ» °¡Áú ¼ö ÀÖ´Ù.
+		/*ì‚°ìˆ ì—°ì‚°ì /
+		 * ì •ìˆ˜/ì •ìˆ˜ -> ëª…ì‹œì  í˜•ë³€í™˜ì„ í•´ì¤˜ì•¼ ì›í•˜ëŠ” ê°’ì„ ê°€ì§ˆ ìˆ˜ ìˆë‹¤.
 		 */
 		/*double num4 = 1/(double)2;
 		System.out.println(num4);
@@ -49,12 +49,12 @@ public class Hello {
 		*/
 		
 		 /*int num =10;
-		 System.out.println("ÈÄÀ§Çü ÁøÇà: " +num++);
-		 System.out.println("ÈÄÀ§Çü °á°ú: " +num);
+		 System.out.println("í›„ìœ„í˜• ì§„í–‰: " +num++);
+		 System.out.println("í›„ìœ„í˜• ê²°ê³¼: " +num);
 		 
 		 num =10;
-		 System.out.println("ÀüÀ§Çü °á°ú: " + ++num);
-		 System.out.println("ÀüÀ§Çü °á°ú: " +num);*/
+		 System.out.println("ì „ìœ„í˜• ê²°ê³¼: " + ++num);
+		 System.out.println("ì „ìœ„í˜• ê²°ê³¼: " +num);*/
 		
 		/*int num2 =20;
 		
@@ -74,7 +74,7 @@ public class Hello {
 		//Exam2
 		/*Scanner scan= new Scanner(System.in);
 		int num2 = scan.nextInt();
-		System.out.println("ÀÔ·ÂÇÑ ¼ö : "+ num2);
+		System.out.println("ì…ë ¥í•œ ìˆ˜ : "+ num2);
 		scan.close();  */
 		
 		//Exam3
@@ -93,7 +93,7 @@ public class Hello {
 		scan.close();
 		*/
 		
-		//Exam4 (º¯¼ö ¼±¾ğÇÏ°í Ãâ·Â¹®À¸·Î ´Ù ´ëÃ¼ÇÒ ¼ö ÀÖÀ½)
+		//Exam4 (ë³€ìˆ˜ ì„ ì–¸í•˜ê³  ì¶œë ¥ë¬¸ìœ¼ë¡œ ë‹¤ ëŒ€ì²´í•  ìˆ˜ ìˆìŒ)
 		/*int num1 =10, num11=3;
 		int k;
 		k = num1+ num11;
@@ -126,8 +126,8 @@ public class Hello {
 		*/
 	    
 		
-		//Áö±İ±îÁö ¸ÔÀº ¹ä°ªÀ» °è»êÇÏ¿© °á°úÃâ·Â
-		//ÇÏ·ç¿¡ 3³¢¸¸ ²À ¸Ô°í ÇÑ³¢¿¡ 3000¿ø. °³¿ùÀº ¹«½ÃÇÏ°í ³ªÀÌ·Î¸¸ °è»ê, À±³âÀº ¹«½Ã
+		//ì§€ê¸ˆê¹Œì§€ ë¨¹ì€ ë°¥ê°’ì„ ê³„ì‚°í•˜ì—¬ ê²°ê³¼ì¶œë ¥
+		//í•˜ë£¨ì— 3ë¼ë§Œ ê¼­ ë¨¹ê³  í•œë¼ì— 3000ì›. ê°œì›”ì€ ë¬´ì‹œí•˜ê³  ë‚˜ì´ë¡œë§Œ ê³„ì‚°, ìœ¤ë…„ì€ ë¬´ì‹œ
 		
 		/*int age = 25;
 		int day = 3;
@@ -135,7 +135,7 @@ public class Hello {
 		int year =365;
 		int totalMoney = age* day* money* year;
 		
-		System.out.println("Áö±İ±îÁö ¸ÔÀº ±İ¾×:" + totalMoney + "¿ø");*/
+		System.out.println("ì§€ê¸ˆê¹Œì§€ ë¨¹ì€ ê¸ˆì•¡:" + totalMoney + "ì›");*/
 		
 		
 		
