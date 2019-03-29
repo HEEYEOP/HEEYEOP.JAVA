@@ -122,34 +122,58 @@ public class Day4 {
 		}*/
 		
 		
+		//---------------------------------------
+		
+		//*********  i=1 공=0 *=9
+		// *******   i=2 공=1 *=7
+		//  *****    i=3 공=2 *=5
+		//   ***     i=4 공=3 *=3
+		//    *      i=5 공=4 *=1
+		//               공=i-1 *=2*(5+1-i)-1
+		
+		/*
+		int num =5;
+		int i,j;
+		for(i=1; i<=num; i++){
+			for(j=1;j<=i-1;j++){
+				System.out.print(" ");
+			}
+			for(j=1;j<=2*(num-i)+1; j++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		*/
+		
+		//-------------------------------
 		
 		
+		//100이하의 소수를 모두 출력하는 코드를 작성하세요.
 		
 		
+		/*
+		int num;
+		int i=0;
+		int cnt=0;
 		
+		for(num=1; num<=100; num++){
 		
+			for(i=1, cnt=0; i<=num; i++){
+			
+			
+				if( num % i == 0 ){
+					cnt=cnt+1;
+				}
+			}
+			
+			if(cnt == 2){
+				System.out.print(num+" ");
+			}
+			
+		}
+		System.out.println();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		*/
 		
 		
 		
