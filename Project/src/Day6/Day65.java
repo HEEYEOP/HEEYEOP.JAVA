@@ -1,3 +1,4 @@
+package Day6;
 
 public class Day65 {
 
@@ -10,8 +11,7 @@ public class Day65 {
 	2. (중복되지 않게 하기 위해서) 배열에 검색하려는 수가 있는지 없는지 확인하는 메소드 : contain
 	3. 배열을 생성(1,2를 만족)하는 메소드: createRandArr												*/
 	
-	
-	
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -38,7 +38,7 @@ public class Day65 {
 	} //	main--------------------
 
 		
-		// 기능	:최소값(min)과 최대값(max)가 주어지면 최소값과 최대값 사이의 임의의 정수를 알려주는 메소드
+		// 기능	: 최소값(min)과 최대값(max)가 주어지면 최소값과 최대값 사이의 임의의 정수를 알려주는 메소드
 		//매개변수 : 최소값, 최대값 ->int min, int max
 		//리턴타입 : 정수 -> int
 		//매소드명 : random
@@ -60,13 +60,13 @@ public class Day65 {
 	
 	//------------------------------------------
 	
-	// 기능 : 배열에 검색숫자가 있는지 없는지 확인하는 메소드
-	// 매개변수 : 검색숫자, 배열 -> int [] arr, int num
+	// 기능      : 배열에 검색숫자가 있는지 없는지 확인하는 메소드
+	// 매개변수 : 검색숫자, 배열 -> int []arr, int num
 	// 리턴타입 : 있는지(true), 없는지(false)  ->boolean
 	// 메소드명 : contain
 	
 
-	public static boolean contain( int []arr, int num, int cnt){		//int num이 찾으려고 하는 숫자 
+	public static boolean contain( int []arr, int num, int cnt){		//int num이 찾으려고 하는 숫자  //int cnt는 검색횟수
 		
 		if( arr == null ){
 			return false;
@@ -84,6 +84,8 @@ public class Day65 {
 		return false;
 	}
 	
+	
+	
 	//------------------------------------------------------
 	
 	// 기능 : 최소값과 최대값, 배열이 주어지면 중복되지 않은 랜덤한 수(min~max)로 배열을 채우는 메소드
@@ -92,36 +94,37 @@ public class Day65 {
 	// 메소드명 : createRandArr
 	public static boolean createRandArr (int min, int max, int [] arr){
 		
-		if( arr == null){
+		if( arr == null ){
 			return false;
 		}
-		if(max-min+1 < arr.length){
+		
+		if(max-min+1 < arr.length){			 //랜덤수의 갯수가 배열의 크기보다 작다면 중복될 수 밖에 없기 때문에 flase를 실행하게됨.
 			return false;
 		}
-		int cnt =0;  //cnt는 랜덤이 배열에 저장된 갯수
+		
+		int cnt = 0;  //cnt는 랜덤이 배열에 저장된 갯수
 		while ( cnt < arr.length){
 			int r = random(min,max);
 			
-			// arr에 r이 없으면
+			// 배열arr에 r이 없으면   ====> r이 없어야 하지! 왜냐면 그래야 중복되지 않게 저장할 수 있으니까
 			if(!contain(arr, r, cnt)){
 				arr[cnt] = r;
-				cnt++;
-				
+				cnt++;	
 			}
 		}
 		
-		return true;
+		return true;					
 		
 	}
 	
-	//------------------
+	//-----------------------------------------------------------------
 	
 	// 기능 : 배열이 주어지면 배열의 모든 원소값을 콘솔에 출력하는 메소드
 	// 매개변수 : 배열 -> int [] arr
 	// 리턴타입 : 없다 -> void
 	// 메소드명 : printArr
 	
-	public static void printArr( int [] arr){
+	public static void printArr(int[] arr){
 		System.out.print("[ ");
 		
 		for(int tmp:arr){
