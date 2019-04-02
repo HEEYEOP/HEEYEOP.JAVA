@@ -55,7 +55,7 @@ public class Day5 {
 		//do while : 조건식에 따라 무조건 1번은 실행 된다.
 		// do{
 		//		실행문;
-		//  }while(조건식);     %while문끝에 ' ; ' 필요
+		//  }while(조건식);     //  while문끝에 ' ; ' 필요
 		
 		/*
 		int menu;
@@ -110,17 +110,17 @@ public class Day5 {
 		
 		int i;
 		
-//		Scanner scan =new Scanner(System.in);
-//		for(i=0; i<3; i++){
-//			kor[i] = scan.nextInt();
-//		}
+		Scanner scan =new Scanner(System.in);
+		for(i=0; i<3; i++){
+			kor[i] = scan.nextInt();
+		}
 		
 		for(i=0; i<kor.length; i++){
 			System.out.println(i+"번지:" + kor[i]);
 		}
 		
 	
-//		scan.close();
+		scan.close();
 		
 	
 	
