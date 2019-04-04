@@ -17,7 +17,6 @@ public class Day65 {
 		// TODO Auto-generated method stub
 
 		int min =1, max =10;			//max가 7보다 작으면 배열생성에 실패
-		int r = random(min,max);
 		int [] arr = new int [7];		//int [] arr = null; // 배열 생성에 실패
 		int [] arr2 =new int [6];
 		
@@ -42,8 +41,8 @@ public class Day65 {
 		//5등 : 보너스번호를 제외한 번호 3개가 일치
 		//꽝   : 2개이하
 		
-		int t = rank(arr,arr2);
-		printRank(t);
+		int r = rank(arr,arr2);
+		printRank(r);
 		
 		
 	} //	main--------------------
