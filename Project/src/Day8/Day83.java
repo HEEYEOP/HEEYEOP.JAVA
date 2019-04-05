@@ -22,10 +22,7 @@ public class Day83 {
 		for(int i =1; i<=9; i++){
 			multi = num*i;
 			System.out.println(num+" * "+i+" = "+ multi);
-			
 		}
-		
-		
 	}
 	
 	// 기능 : start단에서 end단을 출력하는 기능
