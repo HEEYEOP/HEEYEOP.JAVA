@@ -27,8 +27,6 @@ public class Day86 {
 			System.out.println(num+" * "+i+" = "+ multi);
 			
 		}
-		
-		
 	}
 	
 	
@@ -48,9 +46,5 @@ public class Day86 {
 		
 
 		}
-		
-	
-	
-	
 
 }// class꺼 -------------------------
