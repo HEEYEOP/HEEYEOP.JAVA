@@ -43,11 +43,11 @@ public class Day87 {
 		t.printChannel();
 		
 		
-		
-		
 	
 	
 	}//main꺼-----------
+	
+
 	
 }//class꺼 ---------
 
@@ -68,10 +68,10 @@ class Tv{
 	
 	//멤버 메소드 : 기능 
 	
-	//기능 : 멤버 변수 volume의 크기를 하나 증가하는 메소드
+	//기능 : 멤버 변수 volume의 크기를 하나 증가, 감소, 프린트 하는 메소드
 	//매개변수 : 없다 -> void(써도 되고 안써도 된다)
 	//리턴타입 : 없다 -> void
-	//메소드명 : volumeUp
+	//메소드명 : volumeUp , volumeDown, printVolume,
 	
 	public void volumeUp(){
 		if(MAX_VOLUME> volume)
@@ -99,13 +99,15 @@ class Tv{
 			channel --;
 	}
 	
+	public void setChannel(int ch){
+		channel = ch;
+	}
+	
 	public void printChannel(){
 		System.out.println("현재 채널 :"+ channel);
 	}
 	
-	public void setChannel(int ch){
-		channel = ch;
-	}
+	
 	
 	 
 	
