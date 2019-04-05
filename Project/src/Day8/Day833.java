@@ -1,6 +1,6 @@
 package Day8;
 
-import java.util.Scanner;
+
 
 public class Day833 {
 
@@ -19,7 +19,7 @@ public class Day833 {
 	}
 	
 	public static void printDan(int dan){
-		for(int i =1; i<=9; i++){
+		for(int i=1; i<=9; i++){
 			printOne(dan,i);
 		}
 	}
