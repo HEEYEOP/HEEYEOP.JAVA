@@ -13,7 +13,6 @@ public class ClassExam1 {
 		// new Student("홍길동", 1, 1, 1, 100, 90, 80) : 객체를 생성했는데 이름이 없다 => 익명객체
 		
 		stdMng.insert(new Student("홍길동", 1, 1, 1, 100, 90, 80));
-		stdMng.insert(new Student("임꺽정", 1, 1, 1, 100, 80, 80));
 		stdMng.print();
 		System.out.println("---------------------------");
 		
