@@ -35,7 +35,7 @@ public class Student{
 	}
 	
 	
-	public void setName(String name) {
+	public void setName(String name){
 		//우선순위가 멤버변수보다 매개변수 또는 지역변수가 크기 때문에
 		//아래 주석처리한 코드는 의미가 없어진다.
 		//name = name;			--->   매개변수 = 매개변수 ;
@@ -79,7 +79,7 @@ public class Student{
 	public Student(){
 		init("", 1, 1, 1, 0, 0, 0);
 		
-		/*name = "";			// name = new String();
+		/*name = "";			// name = new String(); 와 같은 코드임
 		grade = 1;
 		classNum = 1;
 		num = 1;
@@ -124,7 +124,7 @@ public class Student{
 		this.num =num;
 		this.kor=kor;
 		this.eng =eng;
-		this.math=math;
+		this.math=math; 
 		*/
 		
 	}
