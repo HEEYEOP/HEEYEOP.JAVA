@@ -1,5 +1,7 @@
 package Day12;
 
+import java.util.Scanner;
+
 public class StudentManager {
 	
 	private Student std[];		//학생들 정보를 담을 배열
@@ -28,12 +30,14 @@ public class StudentManager {
 	//메소드명 : insert
 	
 	public void insert(Student s){
+		//학년, 반, 번호로 검색해서 해당 학생 정보가 없으면!! 학생정보 추가, 있으면 아무것도 안함
+		if(search(s) == -1){
 		
-		//std[@@] : Student 클래스의 객체는 초기에 선언만 되어있음
-		//insert 기능에서 객체 정보를 추가하려면 객체를 생성한 후 매개변수의 값을 복사해야함.
-		
-		std[count] = new Student(s);	//복사생성자를 호출한다. 			//std[count] = s; 	===> "객체 = 객체" 는 주의해야한다. std[]를같이 사용하기 때문에 정보가 바뀌면 같이 바뀔 수 있다.
-		count++;
+			//insert 기능에서 객체 정보를 추가하려면 객체를 생성한 후 매개변수의 값을 복사해야함.
+			//std[@@] : Student 클래스의 객체는 초기에 선언만 되어있음
+			std[count] = new Student(s);	//복사생성자를 호출한다. 			//std[count] = s; 	===> "객체 = 객체" 는 주의해야한다. std[]를같이 사용하기 때문에 정보가 바뀌면 같이 바뀔 수 있다.
+			count++;
+		}
 		
 	}
 	
@@ -66,7 +70,7 @@ public class StudentManager {
 		
 	}
 	
-	private int search(Student s){
+	private int search(Student s){						//메소드 오버로딩
 		return search(s.getGrade(),s.getClassNum(), s.getNum());
 	}
 	
@@ -79,10 +83,12 @@ public class StudentManager {
 	//메소드명 : modify
 	
 	public void modify(Student s){
-		int searchIndex = search(s.getGrade(),s.getClassNum(),s.getNum());		//검색했을 때 해당 정보가 있는 번지  
 		
-		if(searchIndex != -1){
-			std[searchIndex] = new Student(s);		//찾은번지에다가 새로운 객체 new Student를 생성하여 덮어쓰기한다 --> 새롭게 수정될 정보는 main에서 new Student로 만들어 넣어준다.
+		//int searchIndex = search(s.getGrade(),s.getClassNum(),s.getNum());		//검색했을 때 해당 정보가 있는 번지  
+		//if(searchIndex != -1){													// 나는 search함수를 바로가져다쓰기로함.
+		
+		if(search(s) != -1){
+			std[search(s)] = new Student(s);		//찾은번지에다가 새로운 객체 new Student를 생성하여 덮어쓰기한다 --> 새롭게 수정될 정보는 main에서 new Student로 만들어 넣어준다.
 			
 		}	
 	}
@@ -107,9 +113,64 @@ public class StudentManager {
 			//현재 저장된 갯수를 하나 감소
 			count --;
 			
-		}	
+		}
+	}
+	public void printMenu(){
+		System.out.println("1.학생정보 추가");
+		System.out.println("2.학생정보 수정");
+		System.out.println("3.학생정보 삭제");
+		System.out.println("4.학생정보 출력");
+		System.out.println("5.종료");
+		System.out.println("메뉴를 선택하세요.");
 		
+	}
+	
+	
+	//기능 : scanner가 주어지면 검색을 위한 학생의 정보를 콘솔을 통해 입력받아 학생 객체를 만들어 돌려주는 기능
+	//매개변수 : Scanner scan
+	//리턴타입 : 학생객체 - Student 
+	//메소드명: inputSearchStudent
+	
+	//Scanner scan = new Scanner(System.in);
+	//       int a = scan.nextInt();
+	public Student inputSearchStudent(Scanner scan){			//Student는 리턴타입
 		
+		Student s = new Student();
+		
+		System.out.println("학년 :");
+		s.setGrade(scan.nextInt());
+		
+		System.out.println("반 :");
+		s.setClassNum(scan.nextInt());
+		
+		System.out.println("번호 :");
+		s.setNum(scan.nextInt());
+		
+		return s;
+	}
+		
+	//기능 	: scanner가 주어지면 학생의 정보를 콘솔을 통해 입력받아 학생 객체를 만들어 돌려주는 기능
+	//매개변수 : Scanner scan
+	//리턴타입 : 학생객체 - Student 
+	//메소드명 : inputStudent
+	
+	public Student inputStudent(Scanner scan){
+		
+		Student s = inputSearchStudent(scan);			
+		
+		System.out.println("이름 :");
+		s.setName(scan.next()); 						//next()는 공백을 무시, nextLine()을 공백을 계산 
+		
+		System.out.println("국어 :");
+		s.setKor(scan.nextInt());
+		
+		System.out.println("영어 :");
+		s.setEng(scan.nextInt());
+		
+		System.out.println("수학 :");
+		s.setMath(scan.nextInt());
+		
+		return s;
 	}
 	
 	
