@@ -88,7 +88,7 @@ public class Hello {
 		/*Scanner scan= new Scanner(System.in);
 		int num = scan.nextInt();
 		boolean isScore = false;
-		isScore = 1<= num && num <= 100;
+		isScore =( 1<= num && num <= 100 );
 		System.out.println(isScore);
 		scan.close();
 		*/
