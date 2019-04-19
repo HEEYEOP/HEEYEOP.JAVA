@@ -20,8 +20,9 @@ public class Tv1 {
 		System.out.println("t3");
 		t3.printChannel();
 		t3.printVolume();
-		t3.volumeDown();
+		
 		System.out.println("t3 소리 줄이기 실행 후 t3");
+		t3.volumeDown();
 		t3.printVolume();
 		System.out.println("t2의 소리");
 		t2.printVolume();

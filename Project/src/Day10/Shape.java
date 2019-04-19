@@ -34,9 +34,12 @@ public class Shape {
 		System.out.println("가로 : "+width);
 		System.out.println("세로 : "+height);
 	}
+	
+	//기본생성자
 	public Shape(){
 		center = new Point();
 	}
+	//생성자2
 	public Shape(int x, int y, int width, int height){
 		center = new Point();
 		

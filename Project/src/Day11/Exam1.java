@@ -5,9 +5,7 @@ public class Exam1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		try{
-			
-	
+	try{
 		Shape s= new Shape();
 		s.print();
 		Shape.printCount();
@@ -22,11 +20,8 @@ public class Exam1 {
 		c.print();
 		
 		Circle.printCount();
-		
-		
-		
+
 		//형변환 --------------------------
-		
 		
 		//자식클래스를 부모클래스로 변환할 때에는 자동형변환이 가능하다.
 		Shape s2 = c;
@@ -45,16 +40,16 @@ public class Exam1 {
 		Circle c3 = (Circle)s3;
 		c3.print();
 		Circle.printCount();
-		}catch(NullPointerException e){
+	}catch(NullPointerException e){
 			System.out.println("객체를 생성하고 사용하세요");
-		}catch(Exception e){
+	}catch(Exception e){
 			System.out.println("예외 발생");
-		}finally{
+	}finally{
 			System.out.println("프로그램종료!");
-		}
-		
+	}
+		/*
 		Shape ss = new Shape();
 		System.out.println(ss);
-		
+		*/
 	}
 }

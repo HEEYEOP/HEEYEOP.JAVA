@@ -9,7 +9,7 @@ public class StringExam2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//문자열을 입력하세요 : Hello world
+		//문자열을 입력하세요 : Hello world 
 		//찾을 문자열을 입력하세요 : He
 		//Hello world에는 He가 있습니다.
 		

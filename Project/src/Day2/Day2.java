@@ -7,10 +7,11 @@ public class Day2 {
 		// TODO Auto-generated method stub
 
 		//정수를 입력받아 입력받은 정수가 짝수인지 아닌지 확인하는 코드를 작성하세요.
-	
-		/*Scanner scan= new Scanner(System.in);
+		/*
+		Scanner scan= new Scanner(System.in);
 		int num = scan.nextInt();
-		System.out.println(num%2==0);*/
+		System.out.println(num%2==0);
+		*/
 		
 		//boolean isEven = num %2 ==0;
 		//System.out.println(isEven);
@@ -58,7 +59,7 @@ public class Day2 {
 		
 		//-------------------------------------
 		
-		//numdl 0이면 0이라고 출력하고, 1이면 1이라고 출력하고
+		//num이 0이면 0이라고 출력하고, 1이면 1이라고 출력하고
 		//0과 1이 아니면 0과 1이 아닙니다라고 출력하는 예제
 		
 		/*int num =0;
@@ -159,7 +160,7 @@ public class Day2 {
 		
 		/*int num = 3;
 		switch(num % 2){
-			case 0: //if(num % 2 ==0)
+			case 0: 							//--->if(num % 2 ==0) 와 같은 의미
 				System.out.println("짝수");
 				break;
 				

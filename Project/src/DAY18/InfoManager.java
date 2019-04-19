@@ -32,11 +32,14 @@ public class InfoManager {
 	
 	//학생정보 수정
 	public void modify(StudentInfo s, StudentInfo t){
-		if(search(s) == true){
+		/*if(search(s) == true){
 			int k = list.indexOf(s);
 			list.set(k, t);
+		}*/
+		int k = list.indexOf(s);
+		if(k != -1){
+			list.set(k, t);
 		}
-
 	}
 	
 	public void print(){

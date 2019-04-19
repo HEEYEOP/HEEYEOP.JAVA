@@ -72,17 +72,19 @@ public class Shape implements Draw {
 		this.setCenter(x, y);
 	}
 	
+	//기본생성자
 	public Shape(){
 		center = new Point();
 		count++;
 	}
 	
+	//복사생성자
 	public Shape(Shape s){
 		resize(s.width,s.height);
 		this.center = new Point(s.center);
 		count++;
 	}
-	
+	//생성자3
 	public Shape(int x, int y, int width, int height){
 		this.center = new Point(x,y);
 		resize(width, height);
@@ -92,7 +94,7 @@ public class Shape implements Draw {
 	
 	@Override
 	public boolean equals(Object obj){
-		if( obj instanceof Shape){
+		if(obj instanceof Shape){
 			Shape s = (Shape)obj;
 			
 			if(s.width != this.width)	return false;

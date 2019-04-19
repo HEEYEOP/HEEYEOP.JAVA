@@ -21,6 +21,8 @@ public class StringExam3 {
 		
 		str =str.replaceAll(search, a);
 		System.out.println(str);
+		
+		scan.close();
 
 		
 		
