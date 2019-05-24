@@ -4,31 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import Day0521.card;
-
 
 public class 포커게임{	
 	public static void main(String[] args){
 		
-		/*user와 dealer를 생성해서 user와 dealer에게 카드 7장씩 나눠주는 코드를 작성하세요
-		CardPack cp = new CardPack();
-		ArrayList<Card> user = new ArrayList<Card>();
-		ArrayList<Card> dealer = new ArrayList<Card>();
-		
-		for(int i =1; i<=7; i++){
-			user.add(cp.give());
-			dealer.add(cp.give());
-		}
-		System.out.println(user);
-		System.out.println(PockerRule.pare(user));
-		System.out.println(dealer);
-		System.out.println(PockerRule.pare(dealer)); */
-		
-		/*
-		boolean s1=false,s2 = false;
+		boolean s1=false, s2 = false;
 		int cnt = 0;
 		while( !(s1 || s2)){
+		while( cnt < 10){
 			CardPack cp = new CardPack();
+			
 			ArrayList<Card> user = new ArrayList<Card>();
 			ArrayList<Card> dealer = new ArrayList<Card>();
 			for(int i=1; i<=7; i++){
@@ -37,38 +22,47 @@ public class 포커게임{
 			}
 
 			//System.out.println(PockerRule.pare(user));
-			s1 = PockerRule.straight(user) == 2 ;
+			//s1 = PockerRule.straight(user) == 3;
+			//s1 = PockerRule.flush(user);
+			s1 = PockerRule.straightFlush(user) >= 1;
+			//s1 = PokerRule.straightFlush(user) >= 1;
+			//s1 = PokerRule.poker(user);
 			System.out.println(s1);
 			System.out.println(user);
+			//s1 = PokerRule.top(user);
+			//System.out.println(s1);
+			System.out.println("유저 카드 :" + user);
+
+
 
 			//System.out.println(PockerRule.pare(dealer));
-			s2 = PockerRule.straight(dealer) == 2;
+			//s2 = PockerRule.straight(dealer) == 3;
+			//s2 = PockerRule.flush(dealer);
+			s2 = PockerRule.straightFlush(dealer) >= 1;
+			//s2 = PokerRule.straightFlush(dealer) >= 1;
+			//s2 = PokerRule.poker(dealer);
 			System.out.println(s2);
 			System.out.println(dealer);
+			//s2 = PokerRule.top(dealer);
+			//System.out.println(s2);
+			System.out.println("딜러 카드 :" + dealer);
+			int win = PockerRule.whoIsWin(user, dealer); 
+			if(win == 1){
+				System.out.println("유저 승리!");
+			}else if(win == -1){
+				System.out.println("딜러 승리!");
+			}else{
+				System.out.println("무승부!");
+			}
 			cnt++;
-			
+			System.out.println("-----------------------------");
 		}
-		System.out.println(cnt);	
-		*/
-		CardPack cp = new CardPack();
-		ArrayList<Card> user = new ArrayList<Card>();
-		ArrayList<Card> dealer = new ArrayList<Card>();
-		for(int i=1; i<=7; i++){
-			user.add(cp.give());
-			dealer.add(cp.give());
-		}
-		
-		System.out.println(PockerRule.flush(user));
-		System.out.println(user);
-		System.out.println(PockerRule.triple(user));
-		System.out.println(PockerRule.fullHouse(user));
-		
+		System.out.println(cnt);
 	}
-	
-	
 }
-
-
+	
+	
+	
 class CardPack{
 
 	private ArrayList<Card> list = new ArrayList<Card>();
@@ -100,7 +94,7 @@ class CardPack{
 	}
 
 	public void show(){				//현재 카드팩 내용을 보여주는 메소드
-		for(int i=0; i<list.size();i++){
+		for(int i=0; i<list.size(); i++){
 			System.out.print(list.get(i) + " ");
 			if( (i+1)% 10 == 0){
 				System.out.println();
@@ -174,14 +168,38 @@ class Card{
 }
 
 
-class PockerRule{
-	//onepare : 숫자가 같은 카드가 2장이고 한셋인 경우
+static class PockerRule{
+	private static int sameCnt(ArrayList<Card> list, int count){
+		
+		int sCnt =0;  //페어의 갯수
+		
+		for(int i =0; i<list.size(); i++){
+			int cnt =0; //같은 숫자의 갯수
+			for(int j =0; j<list.size(); j++){
+				if(list.get(i).getNum() == list.get(j).getNum()){
+					cnt++;
+				}
+			}
+			if(cnt == count){
+				sCnt++;
+			}
+		}
+		
+		return sCnt/count ;
+		
+	}
 	
+	
+	
+	
+	
+	//onepare : 숫자가 같은 카드가 2장이고 한셋인 경우
 	//기능 : 페어를 찾는 메소드
 	//매개변수 : 카드 리스트
 	//리턴타입 : 0 -페어 없음 / 1-원페이/ 2-투페어(페어가 2개이상)
 	public static int pare(ArrayList<Card> list){
-		int pareCnt =0;  //페어의 갯수
+		return sameCnt(list,2);
+		/*int pareCnt =0;  //페어의 갯수
 		
 		for(int i =0; i<list.size(); i++){
 			int cnt =0; //같은 숫자의 갯수
@@ -195,32 +213,36 @@ class PockerRule{
 			}
 		}
 		
-		return pareCnt/2 ;
+		return pareCnt/2 ; */
+		
 	}
 	
 	//트리플 : 숫자가 같은 카드가 3장이고 한셋인 경우
 	public static int triple(ArrayList<Card> list){
-		int tripleCnt =0;
-		for(int i =0; i<list.size(); i++){
-			int cnt =0; //같은 숫자의 갯수
-			
-			for(int j =0; j<list.size(); j++){
+		
+		return sameCnt(list,3);
+	
+		/*
+		int tripleCnt = 0; //페어의 갯수
+		for(int i=0; i<list.size(); i++){
+			int cnt = 0;	//같은 숫자의 갯수
+			for(int j=0; j<list.size(); j++){
 				if(list.get(i).getNum() == list.get(j).getNum()){
 					cnt++;
 				}
 			}
-			if(cnt == 3) tripleCnt++;
+			if(cnt == 3){
+				tripleCnt++;
+			}
 		}
-		
-		return tripleCnt/3;
+		return tripleCnt/3; 
+		*/
+
 	}
 	
 	
-	
-	
-	
 	//스트레이트 : 연속된 숫자가 5장 이상인 경우
-	//0 : 스트레이트 아님 / 1: 스트레이트 / 2: 백스트레이트 / 3: 마운틴
+	//0 : 스트레이트 아님 / 1: 스트레이트 / 2: 백스트레이트(1부터5) / 3: 마운틴
 	public static int straight(ArrayList<Card> list){
 
 		Collections.sort(list, new Comparator<Card>(){
@@ -267,18 +289,20 @@ class PockerRule{
 	}
 	
 	//플러쉬 : 모양이 다섯장 같은 경우
-	public static boolean flush(ArrayList<Card> list){
+	public static String flush(ArrayList<Card> list){
+		String s = null;
 		
-		
-		for(int shapeCnt =0, i =0; i<list.size(); i++){
+		for(int shapeCnt=0, i=0; i<list.size(); i++){
+			s = list.get(i).getShape();
 			for(int j=0; j<list.size()-1; j++){
 				if(list.get(i).getShape().equals(list.get(j).getShape())){
 					shapeCnt++;
+					
 				}
 			}
-			if(shapeCnt == 5) return true;
+			if(shapeCnt == 5) return s;
 		}
-		return false;
+		return null;
 	}
 	
 	//풀하우스 :  트리플 + 원페어 , 또는 트리플2개
@@ -289,4 +313,102 @@ class PockerRule{
 	}
 	
 	
+	
+	//포커 : 숫자가 같은 카드가 4장인 경우
+	public static boolean pocker(ArrayList<Card> list){
+		
+		if(sameCnt(list,4) == 1)
+			return true;
+		return false;
+		
+		/*for(int i =0; i<list.size(); i++){
+			int cnt =0; //같은 숫자의 갯수
+			for(int j =0; j<list.size(); j++){
+				if(list.get(i).getNum() == list.get(j).getNum()){
+					cnt++;
+				}
+			}
+			if(cnt == 4){
+				return true;
+			}
+		}
+		
+		return false;*/
+
+	}
+	
+	
+	//스트레이트 플러쉬 : 모양이 같은 5장의 카드가 숫자가 연속적인 경우
+	
+	public static int straightFlush(ArrayList<Card> list){
+		
+		String s = flush(list);
+		ArrayList<Card> tmp = new ArrayList<Card>();
+		
+		if(s != null){
+		
+			tmp.addAll(list);
+			
+			for(int i=tmp.size()-1; i>=0; i--){
+				if(tmp.get(i).getShape() != s) 
+					tmp.remove(i);
+			}
+		} 
+		return straight(tmp);
+	}	
+	
+	
+	
+	
+	//탑 : rule 중에서 하나라도 만족하는 경우가 없는 경우
+	public static boolean top(ArrayList<Card> list){
+		//원페어, 투페어, 트리플, 풀하우스, 포커체크
+		if(sameCnt(list, 1) != 7) return false;
+		
+		//스트레이트 체크
+		if(straight(list) != 0) return false;
+		
+		//플러쉬 체크
+		if(flush(list) != null) return false;
+		
+		return true;
+	}	
+	
+	
+	public static int score(ArrayList<Card> list){
+		
+		if(straightFlush(list) == 3) 	return 1;
+		if(straightFlush(list) == 2) 	return 2;
+		if(straightFlush(list) == 1) 	return 3;
+		if(pocker(list))				return 4;
+		if(fullHouse(list))				return 5;
+		if(flush(list)!= null)			return 6;
+		if(straight(list)==3)			return 7;
+		if(straight(list)==2)			return 8;
+		if(straight(list)==1)			return 9;
+		if(triple(list) >= 1)			return 10;
+		if(pare(list)>=2)				return 11;
+		if(pare(list)==1) 				return 12;
+		
+		return 13;
+		
+	}
+	
+	public static int whoIsWin(ArrayList<Card> user1, ArrayList<Card> user2){
+
+		int u1 = score(user1);
+		int u2 = score(user2);
+		if( u1 < u2 )	return 1;
+		if( u1 > u2)	return -1;
+		return 0;
+	}
+
+
+
+}
+	
+
+
+
+
 }

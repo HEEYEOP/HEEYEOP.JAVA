@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form태그에서, method가 get이면 input태그의 정보를 url에 담아서 보내는 방식
+                  post는 input태그의 정보를 안보이게 담아서 보내는 방식 
+         input태그의 name 역할 : form태그를 통해 데이터를 전송할 때, 전송하는 데이터의 이름을 지정하고, 
+         name은 중복이 가능, 
+         id는 중복이 불가능, 중복한 경우 첫번째 이용한
+        -->
+                                
+    <form action="/test" method="get">
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+
+
+    <input type="checkbox" name="lunch" id="a" value="1">
+    <label for="a">짜장면</label>
+    <input type="checkbox" name="lunch" id="b" value="2">
+    <label for="b">짬뽕</label>
+
+
+    <input type="radio" name="gender" id="male" checked value="male"> 
+    <label for="male">남자</label>
+    <input type="radio" name="gender" id="female" value="female">
+    <label for="female">여자</label>
+
+    <input type="file" name="" id="">
+    <input type="submit" value="전송">
+    <input type="button" value="버튼">
+    <input type="reset" value="리셋">
+    <input type="email" name="" id="">
+    <input type="url" name="" id="">
+    <input type="hidden" name="">
+    <input type="range" name="" id="">
+    <input type="color" name="" id="">
+    <input type="number" name="" id="">
+    <input type="month" name="" id="">
+
+
+
+
+</form>
+
+</body>
+</html>

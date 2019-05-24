@@ -1,0 +1,32 @@
+body{
+    font-weight: 400; /*글자 굵기*/
+    /*font-size: 20px; 글자 크기*/
+    font-size: 1.5em;
+    text-decoration: underline;
+    /*color: #ff0000;
+    color: red;
+    color: rebeccapurple;
+    color: rgb(255, 0, 0);*/
+    color: darkgoldenrod;
+    text-align: right;
+   }
+   body>div{
+       font-size: 0px;
+   }
+
+   div>div{
+       font-size: 20px;
+       display: inline-block;
+       
+       /*border-style: solid;
+       border-color: black;
+       border-width: 3px; */
+
+       border: 1px solid blue;
+       border-radius: 10px;
+
+       width: 100px;
+       height: 100px;
+       
+       
+   }
