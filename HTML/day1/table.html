@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .table1 th,
+        .table1 td{
+            width: 100px;
+            height: 40px;
+            border: 1px solid black;
+        }
+        table{
+            border-collapse: collapse;
+        }
+
+        /*----------------------------------------------- */
+
+        .table2 th, .table2 td{
+            border: 1px solid blue;
+            background-color:darksalmon;
+            height: 80px;
+            width: 150px;
+        }
+        /*.table2 tbody tr:hover{
+            background-color: blue;
+            color: darkred;
+        }*/
+
+        .table2 tbody{
+            text-align: right;
+        }
+        
+
+
+
+
+        
+
+
+
+
+        
+    
+    </style>
+</head>
+<body>
+    <table class="table1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+                <th>성별</th>
+                <th colspan="2">주민번호1</th>
+                        
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">홍길동</td>
+                <td>20</td>
+                <td>대한민국</td>
+                <td>여</td>
+                <td>000101-2xxxxxx</td>
+                <td>000101-2xxxxxx</td>
+            </tr>
+            <tr>
+                        
+                <td>20</td>
+                <td>대한민국</td>
+                <td>여</td>
+                <td>000101-2xxxxxx</td>
+                <td>000101-2xxxxxx</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <td>-</td>
+            <td>20</td>
+            <td>-</td>
+            <td>남</td>
+            <td>-</td>
+            <td>-</td>
+        </tfoot>
+    </table>
+
+    <table class="table2" id="test">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>HTML</th>
+                <th>CSS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>황기태</td>
+                <td>80</td>
+                <td>70</td>
+            </tr>
+            <tr>
+                <td>이재문</td>
+                <td>95</td>
+                <td>99</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>합</th>
+                <th>175</th>
+                <th>169</th>
+            </tr>
+        </tfoot>
+
+        
+    </table>
+</body>
+</html>

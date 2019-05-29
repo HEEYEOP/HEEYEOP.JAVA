@@ -1,0 +1,39 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+/*패딩을 이용한 방법*/
+.mother1{
+    border: 1px solid black;
+    height: 300px;
+    padding: 20px;
+    
+}
+.box1{
+    border: 1px solid red;
+    height: 100%;
+}
+
+/*
+박스의 가로 = 왼쪽테두리의 굵기 + 오른쪽테두리의 굵기 + 왼쪽패딩 + 오른쪽패딩 + 컨텐츠의 가로
+
+box-sixing : border-box;을 사용하기 전
+width : 컨텐츠의 가로
+
+box-sixing : border-box;을 사용한 후
+width : 박스의 가로
+*/
+
+.mother2{
+    border: 1px solid black;
+    height: 300px;
+}
+.box2{
+    border: 1px solid blue;
+    margin: 20px;
+    height: calc(100% - 20px * 2);
+    
+
+}

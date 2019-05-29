@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .large_box{
+            border: 3px solid yellow;
+            height: 100vh;
+            padding: 10px;    
+        }
+        #small_box1{
+            border: 1px solid red;
+            float: left;
+
+            height: 100%;
+            /*width: 50%;*/
+            width: calc(50% - 5px);
+            
+        }
+        #small_box2{
+            border: 1px solid blue;
+            float: right;
+
+            height: 100%;
+            /*width: 50%;*/
+            width: calc(50% - 5px);
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="large_box">
+        <div id="small_box1"></div>
+        <div id="small_box2"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menu2{
+    display: inline-block;
+    width: 200px;
+    float: left;
+}
+.menu2 ul{
+    border: 1px solid black;
+    border-bottom: none;
+}
+.menu2 ul li{
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+    height: 40px;
+    border-bottom: 1px solid black;
+    line-height: 40px; /*글자를 입력할때, 글자높이를 지정*/    
+}
+.menu2 ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+   /*a태그에 hover를 처리하기 위함*/ 
+    display: inline-block;    
+    width: 100%;
+    height: 100%;
+}
+.menu2 ul li a:hover{
+    background-color: gray;
+    color: white;
+}
+
+
+.container{
+    display: inline-block;
+    width: calc(100% - 200px);
+    height: 100vh;
+    float: left;
+}
+
+/*자식중에 float를 이용한 태그가 있는데 해당 태그의 높이를 포함하여 부모 태그의 높이를 정하고 싶을때*/
+body::after{
+    clear: both;
+    display: block;
+    content: "";
+}

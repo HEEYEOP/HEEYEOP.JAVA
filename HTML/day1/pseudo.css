@@ -1,0 +1,43 @@
+
+a:visited{
+    color: black;
+}
+
+a:hover{
+    color: red;
+
+}
+input:focus{
+    color: red;
+    background-color: green;
+}
+#form>input:nth-child(even){
+    border: 1px solid red;
+
+    /*
+    
+    ***padding***
+
+    4개를 쓰면, top을 기준으로 시계 방향으로 적용
+    => top>right>bottom>left 순으로 적용
+    3개를 쓰면,
+    => top>right>bottom>left(left에는 right의값이 적용)
+    2개를 쓰면,
+    => top>right>bottom(bottopm에 top의값이 적용)>left(left에는 right의값이 적용)
+    1개를 쓰면,
+    => 해당값이 모든 방향에 적용
+    */
+    padding: 10px 20px 30px 40px;
+}
+.box{
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    margin: 10px 20px 30px 40px;
+    padding: 10px;
+}
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}

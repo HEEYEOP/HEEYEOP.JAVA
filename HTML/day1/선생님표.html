@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        .tb1 thead tr{
+            background-color: gray;
+            color: white;
+        }
+        .tb1 td,
+        .tb1 th{
+            width: 100px;
+            height: 40px;
+        }
+        .tb1 td{
+            text-align: right;
+            border-bottom: 1px solid;
+        }
+        .tb1 tr td:nth-child(1){
+            text-align: center;
+        }
+        .tb1 tbody tr{
+            color:yellowgreen;
+        }
+        .tb1 tbody tr:hover,
+        .tb1 tfoot tr:hover{
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <table class="tb1">
+        <thead>
+            <tr>
+                <th>이름/과목</th>
+                <th>HTML</th>
+                <th>CSS</th>
+                <th>JS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>임꺽정</td>
+                <td>100</td>
+                <td>90</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>합</td>
+                <td>200</td>
+                <td>190</td>
+                <td>180</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+.hi{
+    font-size: 40px;
+    font-weight: bold;
+    animation-duration: 2s;/*애니매이션 지속시간*/
+    animation-iteration-count: infinite; /*애니매이션 반복횟수*/
+    animation-name: fontColor;
+
+}
+@keyframes fontColor{
+    0% {color: red;}
+    33%{color: blue;}
+    66%{color: green;}
+    100%{color: red;}
+}
+
+.fail{
+    font-size: 500%;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: fontSize;
+    display: block;
+    height: 100px;
+
+}
+
+@keyframes fontSize{
+    0% {font-size: 500%;}
+    50%{font-size: 100%;}
+    100%{font-size: 500%;}
+}
+
+.mix{
+    font-size: 500%;
+    animation-duration: 10 s;
+    animation-iteration-count: infinite;
+    animation-name: colorSize;
+
+}
+@keyframes colorSize{
+    0%{  color: red; font-size: 500%;}
+    33%{color: blue;}
+    50%{color: green; font-size: 100%;}
+    66%{color: blue;}
+    100%{color: red; font-size: 500%;}
+}
