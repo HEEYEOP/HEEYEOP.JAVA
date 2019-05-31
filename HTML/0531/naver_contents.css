@@ -1,0 +1,192 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    min-width: 1100px;
+}
+.container-top{
+    height: 218px;
+    border-bottom: 1px solid #d1d8e4;
+}
+.container-search{
+    height: 170px;
+}
+.container-search .container-min{
+    position: relative;
+}
+/*-----------------------------------------------------------------------------*/
+.logo-box{
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    margin-top: -25px;
+}
+.logo{
+    display: block;
+    width: 198px;
+    height: 48px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+    background-position: -4px -4px;
+    overflow: hidden;
+}
+.search-box{
+    width: 521px;
+    height: 49px;
+    position: absolute;
+    top: 50%;
+    left: 219px;
+    margin-top: -20px;
+    
+}
+.search-input-box{
+    height: 49px;
+    width: 474px;
+    border: 2px solid #03cf5d;
+    position: absolute;
+}
+.search-btn{
+    position: absolute;
+    width: 49px;
+    height: 49px;
+    background: #03cf5d;
+    right: 0;
+}
+.icon-search{
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+    background-position: -4px -60px;
+    top: 14px;
+    left: 14px;
+}
+.search{
+    width: 405px;
+    height: 23px;
+    margin: 12px 0px 0px 9px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: bold;
+}
+.v-keyboard{
+    position: absolute;
+    top: 50%;
+    right: 76px;
+    margin-top: -21px;
+    padding: 15px 6px;
+}
+.auto-search{
+    position: absolute;
+    top: 50%;
+    right: 49px;
+    margin-top: -21px;
+    padding: 19px 12px 19px 16px;
+}
+.icon-keyboard{
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+    width: 19px;
+    height: 11px;
+    background-position: -33px -60px;
+}
+.icon-auto-down{
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+    width: 9px;
+    height: 4px;
+    background-position: -87px -60px;
+}
+.icon-auto-up{
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_search.svg);
+    width: 9px;
+    height: 4px;
+    background-position: -138px -60px;
+    display: none;
+}
+/*---------------------------------------------------------------------------------*/
+
+.container-banner{
+    height: 47px;
+    border-top: 1px solid #f1f3f6;
+}
+.container-min{
+    width: 1080px;
+    height: 100%;
+    border: 1px  solid black; /*이거 지우기지우기*/
+}
+.div-center{
+    margin: 0 auto;
+}
+.container-bottom{
+    background-color: rgb(242,244,247);
+}
+.container-bottom-out{
+    width: 1100px;
+    padding: 8px 10px 0;
+}
+.container-bottom-in{
+    width: 100%;
+}
+.container-bottom-in::after{
+    clear: both;
+    display: block;
+    content: "";
+}
+.bottom-left{
+    float: left;
+    width: 740px;
+}
+.bottom-right{
+    float: right;
+    width: 332px;
+}
+.bottom-left>div,
+.bottom-right>div{
+    background-color: white;
+}
+.bottom-box{
+    margin-bottom: 8px;
+}
+.content-left1{
+    height: 120px;
+    border: 1px solid black;
+    background-image: url(/img/bg_timeboard_740x120.png);
+}
+.content-left2{
+    height: 46px;    
+}
+.content-left3{
+    height: 246px;
+}
+.content-left4{
+    height: 884px;
+}
+.content-left5{
+    height: 130px;
+}
+.border-gray{
+    border: 1px solid #dee3eb;
+    border: 1px solid black;
+}
+
+/*--------------------------------------*/
+
+.content-right1{
+    height: 120px;
+}
+.content-right2{
+    height: 142px;    
+}
+.content-right3{
+    height: 150px;
+}
+.content-right4{
+    height: 884px;
+}
+.content-right5{
+    height: 130px;
+}

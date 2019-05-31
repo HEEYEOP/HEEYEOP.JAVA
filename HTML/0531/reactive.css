@@ -1,0 +1,43 @@
+
+.container{
+    height: 100px;
+    border: 1px solid black;
+    width: 100%;
+}
+.nav{
+    height: 30px;
+    background-color: lightskyblue;
+}
+.nav button{
+    border: none;
+    background: none;
+    float: right;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+
+@media(min-width:576px){
+    .container{
+        border-color: red;
+    }
+}
+@media(min-width:768px){
+    .container{
+        border-color: blue;
+    }
+    .nav button{
+        display: none;
+    }
+}
+@media(min-width:992px){
+    .container{
+        border-color: green;
+    }
+}
+@media(min-width:1200px){
+    .container{
+        border-color: yellow;
+    }
+}
