@@ -107,12 +107,152 @@
     background-position: -138px -60px;
     display: none;
 }
-/*---------------------------------------------------------------------------------*/
+
+
+
+
+
+
+/*배너---------------------------------------------------*/
 
 .container-banner{
     height: 47px;
     border-top: 1px solid #f1f3f6;
 }
+
+/*배너 공통부분 처리하기 */
+.banner-green{
+    float: left;
+    padding: 15px 0px 0px 4px;
+}
+.banner-black{
+    float: left;
+    padding: 15px 0px 0px 14px;
+}
+
+.banner-green::after,
+.banner-black::after{  /*각각의 배너에 float: left 를 작성하였으므로 부모에 포함될 수 있도록 after코드를 작성하였음*/
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.banner-green>li,
+.banner-black>li,
+.more-view{
+    padding-left: 14px;
+    float: left;
+    list-style: none;
+}
+.banner-green>li:nth-child(1),
+.banner-black>li:nth-child(1){
+    padding: 0;
+}
+.banner-img{
+    height: 16px;
+    display: inline-block;
+    background-image: url(https://s.pstatic.net/static/www/img/2019/sp_nav.png);
+}
+
+/*banner-green 컨텐츠*/
+.mail{
+    width: 25px;
+    background-position: 0 -285px;
+}
+.cafe{
+    width: 27px;
+    background-position: -279px -52px ;
+}
+.blog{
+    width: 40px;
+    background-position: -100px -182px ;
+}
+.kin{
+    width: 40px;
+    background-position: -101px -156px ;
+}
+.shopping{
+    width: 26px;
+    background-position: -279px -156px ;
+}
+.pay{
+    width: 25px;
+    background-position: -70px -285px ;
+}
+.tv{
+    margin-top: 1px;
+    width: 32px;
+    background-position: -125px -130px ;
+}
+
+
+
+/*banner-black컨텐츠*/
+.dictionary{
+    width: 26px;
+    background-position: -279px -208px;
+}
+.news{
+    width: 28px;
+    background-position: -128px -104px; 
+}
+.stock{
+    width: 26px;
+    background-position: -36px -259px; 
+}
+.ground{
+    width: 40px;
+    background-position: -151px -156px; 
+}
+.map{
+    width: 27px;
+    background-position: -279px -130px; 
+}
+.movie{
+    width: 27px;
+    background-position: -234px -233px;
+}
+.music{
+    width: 26px;
+    background-position: -72px -259px; 
+}
+.book{
+    width: 13px;
+    background-position: -140px -78px; 
+}
+.webtoon{
+    width: 27px;
+    background-position: -279px 0;
+}
+
+/*banner-bar*/
+.banner-bar{
+    float: left;
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+}
+.more-view{
+    margin-top: 16px;
+    float: left;
+    width: 55px;
+    height: 16px;
+    background-position: 0 -104px;
+    display: block;
+}
+
+
+
+
+
+/*---------------------------------------------*/
+
+
+
+
+
+
 .container-min{
     width: 1080px;
     height: 100%;
@@ -175,9 +315,73 @@
 
 /*--------------------------------------*/
 
+
+/*로그인 박스*/
 .content-right1{
     height: 120px;
 }
+.lg-local{
+    display: block;
+    padding: 15px 25px;
+}
+.lg-local-text{
+    color: #888;
+    font-size: 12px;
+    line-height: 14px;
+}
+.lg-local-btn{
+    display: block;
+    margin-top: 12px;
+    display: block;
+    width: 280px;
+    height: 37px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_login_v180727.png);
+    background-position: 0 -47px;
+}
+
+.join{
+    float: right;
+    color: #666;
+    display: block;
+    font-size: 12px;
+    line-height: 38px;
+    text-decoration: none;
+}
+ 
+.find{
+    color: #666;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 38px;
+    text-align: left;
+}
+.find:hover,
+.join:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .content-right2{
     height: 142px;    
 }
