@@ -4,6 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
+
+.text-none{
+    text-decoration: none;
+}
 
 .container{
     min-width: 1100px;
@@ -242,16 +249,363 @@
     display: block;
 }
 
+/*로그인박스--------------------------------------------------------*/
+.lg-container{
+    padding: 15px 25px;
+}
+.lg-text{
+    font-size: 12px;
+    line-height: 14px;
+    color: #888;
+}
+.lg-link{
+    display: block;
+    margin-top: 12px;
+    height: 37px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_login_v180727.png);
+    background-position: 0 -47px;
+}
+.lg-text-link{
+    position: absolute;
+    width: 280px; /*absolute로 설정하면 가로의 길이가 필요하다.*/
+    height: 38px;
+    bottom: 0;
+    left: 25px;
+    line-height: 38px;
+    font-size: 12px;
+    color: #666;
+}
+.lg-text-link>a:visited{
+    color: #666;
+}
+.lg-text-link>a:hover{
+    text-decoration: underline;
+}
+.signup{
+    float: right;
+}
+
+/*뉴스캐스트*/
+.news-cast{
+    padding: 15px 0 0 16px;
+}
+.nc-link{
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 12px;
+    color: black;
+    line-height: 16px;
+    display: block;
+}
+.nc-icon,
+.menulist-icon{
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+    background-position: -256px -100px;
+    margin-left: 8px;
+    width: 5px;
+    height: 9px;
+    vertical-align: middle;
+    display: inline-block; /*얘는 스팬태그 안에 있고 스팬태그는 인라인태그, 그래서 가로세로를 지정할수 없기때문에 인라인블락으로 만들어 가로세로를 지정한다*/
+}
+.nc-box{
+    float: left;
+}
+.nc-list{
+    float: right;
+}
+.nc-list>li{
+    float: left;
+    padding: 0;
+    list-style: none;
+    margin-right: 14px;
+}
+.nc-list a{
+    color: #666;
+    font-weight: bold;
+    display: block;
+    height: 15px;
+    font-size: 13px;
+    line-height: 16px;
+    
+}
+a.naver-green{
+    color: #00ab33;
+}
+
+/*오른쪽 2번째 박스*/
+.r2-top{
+    padding-left: 15px;
+    height: 34px;
+    border-bottom: 1px solid #e3e7ee;
+    position: relative;
+}
+.r2-top-btn{
+    display: block;
+    float: left;
+    width: 34px;
+    height: 34px;
+    border-left: 1px solid #e3e7ee;
+    padding: 11px 0;
+    text-align: center;
+}
+.r2-pre,
+.r2-next{
+    width: 6px;
+    height: 11px;
+    display: inline-block;
+    background-image: url(https://s.pstatic.net/static/www/img/2017/sp_timesquare_v170913a.png);
+    vertical-align: top;
+}
+
+.r2-pre{
+    background-position: -433px -303px;
+}
+.r2-pre:hover{
+    background-position: -449px -303px;
+}
+
+.r2-next{
+    background-position: -433px -324px;
+    
+}
+.r2-next:hover{
+    background-position: -449px -324px;
+}
+.r2-info{
+    width: 208px;
+    padding: 9px 0px 7px;
+    height: 100%;
+}
+.r2-page{
+    position: absolute;
+    top: 10px;
+    right: 78px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #888;
+}
+.r2-page b{
+    color: black;
+}
+
+.r2-link-date,
+.r2-title{
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    position: relative;
+    top: 1px;
+    color: black;
+    vertical-align: text-top;
+    display: inline-block;
+}
+.r2-title{
+    color: #888;
+}
+.r2-bar{
+    color: #e3e7ee;
+    margin: 0 -1px 0 4px;
+    font-size: 15px;
+    line-height: 16px;
+    vertical-align: top;
+}
 
 
+/*메뉴리스트*/
 
+.l3-top{
+    height: 45px;
+    border-bottom: 1px solid black;
+    position: relative;
+}
+.l3-bottom{
+    height: 199px;
+    position: relative;
+    overflow: hidden;
+}
+.l3-row{
+    height: 67px;
+}
+.l3-item{
+    float: left;
+    width: 123px;
+    padding: 21px 0 22px;
+    height: 67px;
+    border-right: 1px solid black;
+    text-align: center;
+}
+.l3-br{
+    height: 199px;
+    width: 1px;
+    background-color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.l3-bc{
+    width: 738px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+}
+.c1{
+    top: 66px;
+}
+.c2{
+    bottom: 66px;
+}
+.l3-menulist{
+    height: 44px;
+    float: right;
+}
+.l3-menulist>div{
+    float: left;
+}
+.l3-pre,
+.l3-next{
+    border-left: 1px solid black;
+    width: 44px;
+    height: 44px;
+    float: left;
+    cursor: pointer;
+}
+.l3-pre>i,
+.l3-next>i{
+    margin: 14px 0 0 18px;
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+}
+.l3-pre>i{
+    background-position: -254px -24px;
+}
+.l3-next>i{
+    background-position: -102px -193px;
+}
 
+.l3-pre>i:hover{
+    background-position: -84px -193px;
+}
+.l3-next>i:hover{
+    background-position: -120px -193px;
+}
+.l3-list-item{
+    width: 32px;
+    height: 44px;
+    float: left;
+    margin-right: 10px;
+    display: block;
+}
+.l3-list-item>i{
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin-top: 13px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_newscast_v180511.png);
+}
+.l3-item1{
+    background-position: -200px -124px;
+}
+.l3-item2{
+    background-position: 0px -193px;
+}
+.l3-item3{
+    background-position: -28px -193px;
+}
+.l3-item1.active,
+.l3-item1:hover{
+    background-position: -158px -141px;
+}
+.l3-item2.active,
+.l3-item2:hover{
+    background-position: -200px -152px;
+}
+.l3-item3:hover{
+    background-position: -56px -193px;
+}
 /*---------------------------------------------*/
+/*l4카테고리*/
+.l4-top{
+    height: 45px;
+    border-bottom: 1px solid black;
+}
+.l4-front{
+    float: left;
+    width: 45px;
+    height: 44px;
+    border-right: 1px solid black;
+    position: relative;
+    cursor: pointer;
+}
+.l4-middle{
+    width: 603px;
+    height: 44px;
+    float: left;
+    overflow: hidden;
+}
+.l4-end{
+    float: right;
+}
+.l4-ham{
+    position: absolute;
+    width: 20px;
+    height: 14px;
+    top: 15px;
+    left: 12px;
+    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_themecast_v180607.png);
+    background-position: -218px -257px;
+}
+.l4-ham:hover{
+    background-position: -248px -257px;
+}
+.l4-titem{
+    float: left;
+    height: 44px;
+    padding: 14px 7px 0;
+    margin-right: 10px;
+    letter-spacing: -1px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+}
+.l4-titem:hover{
+    color: black;
+}
+.l4-titem.active{
+    border-bottom: 3px solid #03cf5d;
+    color: #03cf5d;
+}
+
+/*l4-bottom 박스크기잡기-----------------*/
+.l4-bottom{
+    padding: 18px 2px 3px 16px;
+}
+.l4-bottom::after{
+    clear: both;
+    content: "";
+    display: block;
+}
+.l4-bitem{
+    float: left;
+    margin: 0 14px 19px 0;
+    width: 166px;
+    height: 185px;
+    position: relative;                         /*display:block 하고 position: relative하고 둘이 엄청 헷갈림 다시 체크하기*/
+    border: 1px solid black;
+}
+.l4-bitem-w2{
+    width: 346px;
+}
+.l4-bitem-h2{
+    height: 389px;
+}
 
 
 
-
-
+/*----------------------------------------*/
 
 .container-min{
     width: 1080px;
@@ -293,7 +647,7 @@
 }
 .content-left1{
     height: 120px;
-    border: 1px solid black;
+    border: 1px solid black;  
     background-image: url(/img/bg_timeboard_740x120.png);
 }
 .content-left2{
@@ -316,72 +670,10 @@
 /*--------------------------------------*/
 
 
-/*로그인 박스*/
 .content-right1{
     height: 120px;
+    position: relative;
 }
-.lg-local{
-    display: block;
-    padding: 15px 25px;
-}
-.lg-local-text{
-    color: #888;
-    font-size: 12px;
-    line-height: 14px;
-}
-.lg-local-btn{
-    display: block;
-    margin-top: 12px;
-    display: block;
-    width: 280px;
-    height: 37px;
-    background-image: url(https://s.pstatic.net/static/www/img/2018/sp_login_v180727.png);
-    background-position: 0 -47px;
-}
-
-.join{
-    float: right;
-    color: #666;
-    display: block;
-    font-size: 12px;
-    line-height: 38px;
-    text-decoration: none;
-}
- 
-.find{
-    color: #666;
-    text-decoration: none;
-    font-size: 12px;
-    line-height: 38px;
-    text-align: left;
-}
-.find:hover,
-.join:hover{
-    text-decoration: underline;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .content-right2{
     height: 142px;    
 }
@@ -394,3 +686,15 @@
 .content-right5{
     height: 130px;
 }
+
+
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}
+
+
+
+
