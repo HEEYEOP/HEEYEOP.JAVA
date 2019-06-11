@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>callback함수를 이용한 예제</title>
+</head>
+<body>
+    <script>
+
+        var count = 1;
+        function sayHello1(){
+            console.log("Hello world : " + count);
+            count++;
+        }
+        setTimeout(sayHello1,1000);
+        count++;
+
+
+
+         console.log("------------------");
+        var count = 1;
+        function sayHello2(){
+            console.log("Hello world : " + count);
+            count++;
+            setTimeout(sayHello2,1000);
+         }
+         function sayHi(){
+            console.log("Hi");
+            setTimeout(sayHi, 900);
+         }
+         setTimeout(sayHello2, 1000);
+         setTimeout(sayHi, 900);
+        
+    
+    
+    
+    </script>
+    
+</body>
+</html>

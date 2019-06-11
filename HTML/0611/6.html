@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>최대공약수(자바스크립트)</title>
+</head>
+<body>
+    <script>
+        //두 수의 최대 공약수를 구하는 함수를 만들고 테스트
+        function exam(num1, num2){
+            if(num1>num2){
+                tmp = num1;
+                num1= num2;
+                num2=tmp;
+            }
+            for(var i=1; i<=num1; i++){
+                if(num1%i==0 && num2%i==0){
+                    var res = i;
+                }
+            }
+            return res;
+
+        }
+        console.log(exam(2,4));
+        
+
+        //최대공약수를 구하는 코드 작성
+        var num1 = 2;
+        var num2 = 4;
+        
+        if(num1>num2){
+            tmp = num1;
+            num1=num2;
+            num2=tmp;
+        }
+        for(var i=1; i<=num1; i++){
+            if(num1 % i ==0 && num2 % i ==0){
+                var res = i;
+            }
+        }
+
+        //선생님코드
+        function gcd(num1, num2){
+            var gcd =1;
+            for(var i=2; i<=num1; i++){
+                if(num1%i==0 && num2%i==0){
+                    gcd = i;
+                }
+            }
+            return gcd;
+        }
+        
+    </script>
+    
+</body>
+</html>
