@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <h1>생년월일 입력</h1>
+        <input type="text" placeholder="yyyy" onchange="checkYear(this)">
+        <input type="text" placeholder="mm" onchange="checkMonth(this)">
+        <input type="text" placeholder="dd" onchange="checkDay(this)">
+        <br>
+        <br>
+
+        <input type="text" placeholder="yyyy" onchange="check(this,4,1980,2019,'년도를')">
+        <input type="text" placeholder="mm" onchange="check(this,2,1,12,'월을')">
+        <input type="text" placeholder="dd" onchange="check(this,2,1,31,'일을')">
+
+        <script>
+                window.onload = function(){
+                }   
+    
+                //-------------------------------------------------//
+
+                function checkLength(str,length){
+                    str = ''+str;
+                    if(str.length == length)	return true;
+                    return false;
+                }
+
+                function checkInteger(str){
+                    str = ''+str;                                 //str이 숫자이면 문자열로 바꿔주는 코드, 문자열이면 그대로 문자열
+                    for(var j=0; j<str.length; j++){              //문자열에서 문자를 하나씩 꺼내서 확인
+                        var tmp = parseInt(str[j]);               //꺼낸 문자를 정수로 변환
+                        if(isNaN(tmp))                            //tmp가 정수가 아니면 false를 리턴
+                            return false;
+                    }
+                    return true;     
+                }
+
+                function checkRange(min, max, val){       
+                    if(isNaN(min) || isNaN(max) || isNaN(val))	return false;
+                    if(min > max){
+                        var tmp = min;       
+                            min = max;
+                            max = tmp;
+                    }
+                    if(val < min || val > max)	return false;
+                    
+                    return true;
+                }
+
+                //-------------------------------------------------//
+
+                function checkYear(objYear){       
+                    var year = objYear.value;
+
+                    //4자리 체크      
+                    if( !checkLength(year,4)){
+                        alert('4자리를 입력하세요.');      
+                        return ;      
+                   }       
+                    //숫자만 입력했는지 체크   
+                    if(!checkInteger(year)){
+                        alert('숫자만 입력해야합니다.');
+                        return;
+                    }
+                    //출생년도 범위 체크
+                    if(!checkRange(1800,2019,parseInt(year))){
+                        alert('올바른 년도를 입력하세요');
+                        return ;
+                    }
+                }
+
+                function checkMonth(objMonth){
+                    var month = objMonth.value;
+                    
+                    //4자리 체크
+                    if( !checkLength(month,2)){
+                        alert('2자리를 입력하세요.');
+                        return ;
+                    }
+                    //숫자만 입력했는지 체크
+                    if(!checkInteger(month)){
+                        alert('숫자만 입력해야합니다.');
+                        return;
+                    }
+                    //출생년도 범위 체크
+                    if(!checkRange(1,12,parseInt(month))){
+
+                        alert('올바른 월를 입력하세요');
+                        return ;
+                    }
+                }
+
+                function checkDay(objDay){
+                    var day = objDay.value;
+                    //4자리 체크
+                    if( !checkLength(day,2)){
+                        alert('2자리를 입력하세요.');
+                        return ;
+                    }
+                    //숫자만 입력했는지 체크
+                    if(!checkInteger(day)){
+                        alert('숫자만 입력해야합니다.');
+                        return;
+                    }
+                    //출생년도 범위 체크
+                    if(!checkRange(1,31,parseInt(day))){
+                        alert('올바른 일를 입력하세요');
+                        return ;
+                    }
+                }
+
+                //-------------------------------------------------//
+
+                function check(obj,length,min, max, error){      
+                    var val = obj.value;
+                    
+                    //4자리 체크     
+                    if( !checkLength(val,length)){    
+                        alert(length+'자리를 입력하세요.');     
+                        return ;     
+                    }      
+                    //숫자만 입력했는지 체크      
+                    if(!checkInteger(val)){     
+                        alert('숫자만 입력해야합니다.');      
+                        return;      
+                    }      
+                    //출생년도 범위 체크       
+                    if(!checkRange(min,max,parseInt(val))){       
+                        alert('올바른 '+error+' 입력하세요');      
+                        return ;       
+                    }       
+                }
+                
+            </script>
+    
+</body>
+</html>

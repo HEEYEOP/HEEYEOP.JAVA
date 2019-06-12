@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>(미완)(내코드)생년월일 입력</title>
+</head>
+<body>
+    <h1>생년월일 입력</h1>
+    <input type="text" placeholder="yyyy" onchange="checkYear()">
+    <input type="text" placeholder="mm" onchange="checkMonth()">
+    <input type="text" placeholder="dd" onchange="checkDate()">
+
+    <script>
+        window.onload = function(){
+        }
+        
+        function checkYear(){
+            var year = document.getElementsByTagName('input')[0].value;
+            
+            //4자리체크
+            if(year.length != 4){
+                alert('4자리를 입력하세요');
+                return ;
+            }
+
+            //입력값이 숫자인지 체크
+            var iyear = parseInt(year);
+            if(isNaN(iyear) || iyear < 1000){
+                alert('숫자만 입력해야합니다');
+                return ;
+            }            
+
+            //출생년도 범위 체크
+            if(parseInt(year) < 1800 || parseInt(year) >2019){
+                alert('올바른 년도를 입력하세요');
+                return ;
+            }
+        }
+
+        function checkMonth(){
+            var month = document.getElementsByTagName('input')[1].value;
+            var imonth = parseInt(month);
+
+            //2자리체크
+            if(month.length != 2){
+                alert('2자리를 입력하세요');
+                return ;
+            }
+            
+            //입력값이 숫자인지 체크
+            if(isNaN(imonth) || imonth < 10){
+                alert('숫자만 입력해야합니다.')
+                return ;
+            }
+
+            //앞자리에 0 또는 1이 오는지 체크
+            if(imonth <= 0 || imonth > 12){
+                alert('달은 1월부터 12월까지 있습니다.');
+                return ;
+            }
+        }
+
+        function checkDate(){
+            var date = document.getElementsByTagName('input')[2].value;
+            var idate = parseInt(date);
+
+            //2자리체크
+            if(date.length != 2){
+                alert('2자리를 입력하세요');
+                return ;
+            }
+
+            //입력값이 숫자인지 체크
+            if(isNaN(idate) || imonth < 10){
+                alert('숫자만 입력해야합니다.')
+                return ;
+            }
+
+            //
+            if(imonth <= 0 || imonth > 31){
+                alert('일은 1부터 31까지 있습니다.');
+                return ;
+            }
+
+        }
+    
+    </script>
+ 
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>객체만들기</title>
+</head>
+<body>
+    <script>
+        var human1 ={name:'홍길동', age:29, address:'청주시'};
+        console.log(human1.name);
+        console.log(human1['name']);
+
+
+        var human2 ={name:'홍길동',
+                    age:29, 
+                    address:'청주시',
+                    toSrting:function(){ 
+                                            var str='이름 : '+ this.name+' 나이: '+this.age
+                                            console.log(str); 
+                                            return str;
+                                      }
+            
+        };
+        console.log(human2.name);
+        human2.name='임꺽정';
+        human2.toString();
+        human2.id='0000-0000';
+        console.log(human2.id);
+
+        
+        
+    </script>
+    
+</body>
+</html>
