@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>취미</title>
+</head>
+
+<body> 
+
+    <h1>취미</h1>
+
+    <form action="">
+        <input type="text" name="hobby" id="hobby" readonly>
+<!--    <input type="hidden" name="hobby" id="hobby" readonly>  위에 코드는 눈으로 확인하기 쉽게 type을 text 지정하였음-->
+
+        <div><input type="checkbox" value="운동" onchange ="check()">운동</div>
+        <div><input type="checkbox" value="노래" onchange ="check()">노래</div>
+        <div><input type="checkbox" value="춤" onchange ="check()">춤</div>
+        <div><input type="checkbox" value="독서" onchange ="check()">독서</div>
+    </form>
+
+    <script>
+        function check(){
+            var arr = document.getElementsByTagName('input');
+            var hobbyArr = [];
+            for(var i=0; i<arr.length; i++){
+                if(arr[i].type == 'checkbox'){
+                    if(arr[i].checked == true){
+                        hobbyArr.push(arr[i].value);
+                    }
+                }
+            }
+            var hobbyStr = hobbyArr.join(',');
+            document.getElementById('hobby').value = hobbyStr;
+            return hobbyStr;
+        }
+    </script>
+    
+</body>
+</html>

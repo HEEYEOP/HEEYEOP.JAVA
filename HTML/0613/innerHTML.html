@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHTML</title>
+</head>
+
+<body>
+    <button onclick="ok()">확인</button>
+    
+    <h1>안녕</h1>
+    
+    <div id="content"></div>
+    
+    <h1>잘가</h1>
+
+    <script>
+        function ok(){
+            document.getElementById('content').innerHTML = '<a href="#">내용</a>';
+        }
+    </script>
+
+</body>
+</html>
