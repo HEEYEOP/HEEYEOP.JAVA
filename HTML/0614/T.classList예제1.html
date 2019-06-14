@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>체크박스&색깔박스1</title> 
+    <!-- 체크박스를 체크하면, 해당박스색을 변경하는 예제 -->
+    
+	<style> 
+	.bg-red     {	background-color: red;} 
+	.bg-blue    {	background-color: blue;} 
+	.bg-yellow  {	background-color: yellow;} 
+	.bg-gray    {	background-color: gray;} 
+    
+    .box{ 
+		width: 30px; 
+		height: 30px; 
+		display: inline-block; 
+		border: 1px solid black; 
+	} 
+	</style> 
+</head> 
+
+<body> 
+	<div> 
+		<div class="box"></div> 
+		<div class="box"></div> 
+		<div class="box"></div> 
+		<div class="box"></div> 
+	</div> 
+
+	<div> 
+		<input type="checkbox" value="blue" onchange="setBgColor(0,this.value)"> 파랑 
+	</div> 
+	<div> 
+		<input type="checkbox" value="red" onchange="setBgColor(1,this.value)"> 빨강 
+	</div> 
+
+	<div> 
+		<input type="checkbox" value="yellow" onchange="setBgColor(2,this.value)"> 노랑 
+	</div> 
+
+	<div> 
+		<input type="checkbox" value="gray" onchange="setBgColor(3,this.value)"> 회색 
+	</div> 
+
+
+	<script> 
+		function setBgColor(index, color){ 
+			document.getElementsByClassName('box')[index].classList.toggle('bg-'+color); 
+		} 
+	</script> 
+
+</body> 
+</html>

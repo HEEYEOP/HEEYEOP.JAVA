@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>체크해서 색깔박스만들기</title>
+    <!-- 체크해서 색깔박스만드는예제, 내코드, 뭔가 시원찮음(해제하는거 구현못함) -->
+    
+    <style>
+        .box{
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            float: left;
+            margin-left: 5px;
+            background-color: white;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="box" id="blue"></div>
+    <div class="box" id="yellow"></div>
+    <div class="box" id="red"></div>
+    <div class="box" id="black"></div>
+    <br>
+
+    <ul>
+        <li><input type="checkbox" onchange="changeColor('blue')">파랑</li>
+        <li><input type="checkbox" onchange="changeColor('yellow')">노랑</li>
+        <li><input type="checkbox" onchange="changeColor('red')">빨강</li>
+        <li><input type="checkbox" onchange="changeColor('black')">검정</li>
+    </ul>
+
+    <script>
+        function changeColor(color){
+            var str = 'background-color:'+ color + ';' ;
+            document.getElementsByTagName('div')[color].style = str;
+        }
+    </script>
+
+
+</body>
+</html>

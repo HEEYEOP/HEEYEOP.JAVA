@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="햄버거로박스띄우기.css">
+    <title>reactive_hamberder_button</title>
+    <!-- 햄버거버튼 클릭해서 박스창띄우기(내가 한 코드) -->
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <button id="button" onclick="display('red-box')">
+                <i class="fas fa-hamburger"></i>
+            </button>
+        </div>
+        <div id="red-box" class="view-box"></div> 
+    </div>
+
+    <script>
+        function display(id){
+            document.getElementById(id).classList.toggle('view-box1');
+        }
+       
+    
+    </script>
+</body>
+</html>
