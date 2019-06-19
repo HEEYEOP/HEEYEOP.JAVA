@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>변경된 내용 창으로 띄우기</title>
+
+</head>
+
+<body>
+    <input type="text" onchange="change1(this.value)">
+
+    <script>
+        
+        var oldText = '';
+        
+        function change1(newText){ 
+
+            alert('내용이 [ ' +oldText+ '] 에서 [ ' + newText + ' ] 로 변경되었습니다');
+            oldText = newText;
+        }
+    
+    </script>
+    
+</body>
+</html>

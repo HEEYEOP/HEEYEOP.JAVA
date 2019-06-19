@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        주문메뉴
+        <br>
+        <input type="checkbox" value="짜장면" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 짜장면
+        <input type="checkbox" value="짬뽕" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 짬뽕
+        <input type="checkbox" value="탕수육" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 탕수육
+
+        <br>
+        <button onclick="order2()">주문</button>
+
+        <script>
+
+        var list = [];
+
+        function updateOrderList(isChecked, menu){
+            if(isChecked){                          
+                list.push(menu);
+            }else{                                  
+                var index = list.indexOf(menu);     
+                if(index >= 0)                      
+                    list.splice(index,1);
+            }
+        }
+
+        function order2(){
+            if(list.length != 0){
+                alert('주문내역 : ' + list);
+            }else
+                alert('주문내역이 없습니다 '); 
+        }
+
+        </script>
+
+
+    
+</body>
+</html>

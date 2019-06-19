@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>짜장면 주문예제(첫번째방법)</title>
+</head>
+<body>
+    
+    주문메뉴
+    <br>
+    <input type="checkbox" value="짜장면" class="checkbox"> 짜장면
+    <input type="number" value="1" class="box-cnt">
+
+    <input type="checkbox" value="짬뽕" class="checkbox"> 짬뽕
+    <input type="number" value="1" class="box-cnt">
+
+    <input type="checkbox" value="탕수육" class="checkbox"> 탕수육
+    <input type="number" value="1" class="box-cnt">
+
+
+    <br>
+    <button onclick="order1()">주문</button>
+
+
+    <script>
+
+        function order1(){
+            var checkList = document.getElementsByClassName('checkbox');
+            var countList = document.getElementsByClassName('box-cnt');
+            var orderList = [];
+
+            for(var i=0; i<checkList.length; i++){
+                if(checkList[i].checked) 
+                    orderList.push(checkList[i].value+':'+countList[i].value);
+            }
+            if(orderList.length != 0)
+                alert('주문 내역 : ' + orderList.join(', '));
+            else
+                alert('주문 내역이 없습니다.');
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    내코드!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    <div>
+        <h3>주문메뉴</h3>
+        <input type="checkbox" id="짜장면"> 짜장면
+        <br>
+        <button onclick="checkMenu()"> 주문 </button>
+    </div>
+
+    <script>
+        function checkMenu(){
+            var a = document.getElementsByTagName('input')[0];
+                if(a.checked){
+                    alert( a.id + '(이)가 주문되었습니다.');
+                }
+        }
+    
+    </script> -->
+    
+</body>
+</html>   

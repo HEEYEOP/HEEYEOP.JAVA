@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>짜장면 주문예제(두번째방법)</title>
+</head>
+<body>
+        주문메뉴
+        <br>
+        <input type="checkbox" value="짜장면" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 짜장면
+        <input type="number" id="짜장면" onchange="updateCount(this.id)" min="1" value="1"><br>
+        
+        <input type="checkbox" value="짬뽕" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 짬뽕
+        <input type="number"  id="짬뽕" onchange="updateCount(this.id)" min="1" value="1"><br>
+        
+        <input type="checkbox" value="탕수육" class="checkbox" onchange="updateOrderList(this.checked, this.value)"> 탕수육
+        <input type="number" id="탕수육" onchange="updateCount(this.id)" min="1" value="1"><br>
+
+        <button onclick="order2()"> 주문 </button>
+
+        <script>
+
+        var list = [];
+        var countList = [];
+        var msg =[];
+
+        function updateOrderList(isChecked, menu){
+
+            if(isChecked){                          //메뉴가 선택되면 리스트에 추가
+                list.push(menu);
+                var cnt = document.getElementById(menu).value;
+                countList.push(cnt);
+                msg.push(menu+':'+cnt);
+            
+            }else{                                  //메뉴가 해제되면 리스트에 제거
+                var index = list.indexOf(menu);     //제거할 메뉴가 몇번지에 있는지 검색
+                if(index >= 0){                      //제거할 메뉴가 리스트에 있으면 메뉴를 리스트에서 제거
+                    list.splice(index,1);
+                    countList.splice(index,1);
+                    msg.splice(index,1);
+                }
+            }
+        } 
+
+        function order2(){
+            if(msg.length != 0){
+                alert('주문내역 : ' + msg);
+            }else
+                alert('주문내역이 없습니다 '); 
+        }
+
+        function updateCount(id){
+            var index = list.indexOf(id);
+            if(index >= 0 ){
+                var cnt = document.getElementById(id).value;
+                countList[index] = cnt;
+                msg[index] = list[index]+':'+cnt;
+            }
+        }
+
+        </script>
+  
+</body>
+</html>

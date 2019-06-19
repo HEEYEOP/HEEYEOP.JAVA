@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+	<title>Document</title> 
+
+	<style> 
+	.time-led{ 
+		width: 100px; 
+		height: 50px; 
+		padding: 0 5px; 
+		line-height: 50px; 
+		text-align: right; 
+		border: 1px solid black; 
+	} 
+
+	.btn{ 
+
+	} 
+
+    </style> 
+    
+</head> 
+
+<body> 
+	<div class="time-led">00:00:00:00</div> 
+	<button class="btn" onclick="runAndStop()">시작/스톱</button> 
+	<button class="btn" onclick="reset()">리셋</button> 
+
+	<script> 
+		var isRunning = false; 
+		var count = 0; 
+		var id;//setInterval()를 통해 할당된 값을 저장 
+		
+		function runAndStop(){ 
+			//start를 해야하는 상황(이전에 멈춰있다가 지금 버튼을 눌러서 
+			//동작해야하는 상황)이면 
+			if(!isRunning){ 
+				id = setInterval(timer,10); 
+				isRunning = true; 
+			}else{ 
+				isRunning = false; 
+				clearInterval(id); 
+			} 
+		} 
+
+
+		function reset(){ 
+			document.getElementsByClassName('time-led')[0].innerHTML = '00:00:00:00'; 
+			isRunning = false; 
+			count = 0; 
+		} 
+
+		function timer(){ 
+			if(isRunning){
+				// 
+				var strCount = '00:00:00:00'; 
+				strCount = getTime(++count); 
+				document.getElementsByClassName('time-led')[0].innerHTML = strCount; 
+			} 
+		} 
+
+		function getTime(count){ 
+			//12345 
+			//12345%100 => 45 mm 
+			var mm = count % 100; 
+			//12345/100 => 123 
+			count = parseInt(count/100); 
+			//123%60 => 3 ss 
+			var ss = count % 60; 
+			//123/60 => 2 
+			count = parseInt(count/60); 
+			//2%60 => 2 MM 
+			var MM = count % 60; 
+			//2/60 => 0 
+			count = parseInt(count/60); 
+			//0%60 => 0 hh 
+			var hh = count; 
+			return ''+getStr(hh)+':'+getStr(MM)+':'+getStr(ss)+':'+getStr(mm); 
+		} 
+
+		function getStr(num){ 
+			if(num < 10)	return '0'+num; 
+			else return num; 
+		} 
+
+	</script> 
+
+</body> 
+</html>

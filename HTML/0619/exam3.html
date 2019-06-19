@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" onchange="check(this.checked)">
+    <script>
+        function check(isChecked){
+            if(isChecked) 
+                alert('체크되었습니다');
+            else
+                alert('해제되었습니다');
+        }
+    
+    </script>
+
+
+
+    <!-- <input type="checkbox" onchange="change2()"checked>
+    <script>
+
+        function change2(){
+            var ck = document.getElementsByTagName('input')[0];
+
+            if( ck.checked ){
+                alert('체크박스가 체크되었습니다');
+            }else{
+                alert('체크박스가 해제되었습니다');
+                
+            }
+            
+        }
+    </script> -->
+    
+
+</body>
+</html>
