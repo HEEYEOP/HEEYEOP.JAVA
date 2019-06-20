@@ -10,17 +10,17 @@
     <script>
         var human1 ={name:'홍길동', age:29, address:'청주시'};
         console.log(human1.name);
-        console.log(human1['name']);
+        console.log(human1['name']); //이거 name에 '' 안붙여줘도 되나? 아니면 꼭 붙여줘야하나?
 
 
         var human2 ={name:'홍길동',
-                    age:29, 
-                    address:'청주시',
-                    toSrting:function(){ 
-                                            var str='이름 : '+ this.name+' 나이: '+this.age
+                     age:29, 
+                     address:'청주시',
+                     toSrting:function(){ 
+                                            var str= '이름 : '+ this.name+' 나이: '+this.age
                                             console.log(str); 
                                             return str;
-                                      }
+                                        }
             
         };
         console.log(human2.name);

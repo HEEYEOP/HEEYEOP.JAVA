@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>입력창에 저장한 정보를 가져오는 예제</title>
+    <title>입력창에 저장한 정보를 가져오는 예제(onclick/document/get)</title>
 </head>
 
 <body>
-    <input type="text" id="text">
+    <input type="text" id="message_box">
     <button onclick="message()">버튼</button>
     
     <script>
         function message(){
-            var text = document.getElementById('text');
-            alert(text.value);
+            var text = document.getElementById('message_box');
+            alert(text.value);          //alert()은 팝업창을 띄우는 함수
             text.value='';
         }
 

@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>배열관련 함수들</title>
+    <title>배열관련 함수들 중요중요</title>
 </head>
 <body>
+    
     <script>
-        //var arr =[];
-        var arr = new Array();
+        //var arr = new Array();
+        var arr =[];
+
         arr.push('1');
         arr.push(2);
         console.log('arr : '+arr); //값들만 쪼로록 보여준다.
@@ -97,7 +99,7 @@
 
 
         //slice(start,end); --->start번지부터 end-1번지까지 복사해서 새로운 배을 생성하여 리턴       
-        //splice(start, deletecount); --->statr번지부터 delete개수만큼 삭제한 후 삭제된 배열을 리턴
+        //splice(start, deletecount); --->start번지부터 delete개수만큼 삭제한 후 삭제된 배열을 리턴
         console.log("3-----------------------");
         var arr5 = arr.splice(0,2); //splice는 원본 변경된다. 0번지부터 2개!!
         console.log(arr5);

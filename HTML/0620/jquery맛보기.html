@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script scr="//code.jquery.com/jquery-3.4.1.js"></script>
+    <title>jquery맛보기</title>
+    <script>
+        /*
+        --선택자--
+        클래스 선택자 : .클래스
+        아이디 선택자 : #아이디
+        태그 선택자 : 태그명
+        자식관계 : 선택자1>선택자2
+        자손관계 : 선택자1 선택자2 (((띄어쓰기)))
+        자기자신 : 선택자1선택자2  (((태그선택자 2개가 같이 올 수 없다))) => 한 개체가 2개의 태그에 동시에 포함될 수 없기 때문
+                                 (((아이디도 2개가 같이 올 수 없다)))
+    
+        
+        $('선택자');
+
+        document.getElementById();
+        +document.getElementsByClassName();
+        +document.getElementsByTagName();
+        */
+        $(document).ready(function(){ //window.onload와 비슷한역할, 차이는 $(document).ready()는 여러개 나와도 각각 실행됨 
+            $('input').change(function(){               //내용이 변경된 요소(this)의 value를 콘솔에 출력
+                console.log(this.value);
+            })
+        });
+
+        
+    </script>
+</head>
+<body>
+
+    <input type="text" value="123">
+
+    <script>
+
+    
+    </script>
+    
+</body>
+</html>
