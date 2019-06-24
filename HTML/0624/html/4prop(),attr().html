@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <title>prop() 와 attr() 의 차이</title>
+
+    <script>
+        $(document).ready(function(){
+            
+            /*
+            $().prop(); //자바스크립트의 프로퍼티를 다룸
+            $().attr(); //html의 속성을 다룸
+            */
+
+           var propStr = $('a').prop('href');
+           var attrStr = $('a').attr('href');
+           console.log('prop : ' + propStr);
+           console.log('attr : ' + attrStr);
+        });
+    </script>
+</head>
+
+<body id="body">
+    <a href="#container">맨 위로</a>
+</body>
+</html>
