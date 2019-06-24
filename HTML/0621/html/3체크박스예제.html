@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>체크박스 클릭하면 체크, 해제하면 해제</title>
+
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('input[type=checkbox]').change(function(){
+                //console.log('체크박스 선택');
+                //console.log($(this).prop('checked'));
+                if($(this).prop('checked'))
+                    console.log('체크');
+                else
+                    console.log('해제');
+            });
+
+            //---------------------------------------------------
+            // $().prop('속성명');             //해당 속성 값을 가져옴
+            // $().prop('속성명','값');        //해당 속성을 값으로 설정
+            
+            // $().val();                       //값을 가져오는거
+            // $().val('값');                   //값을 설정하는거
+            //---------------------------------------------------
+
+            var cnt = 0;
+            $('input[type=checkbox]').each(function(){
+                cnt++;
+                console.log(cnt);
+            });
+        });
+    
+    
+    </script>
+</head>
+
+
+<body>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>클릭하면 콘솔에 찍기</title>
+
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('button').click(function(){
+                console.log('버튼을 클릭했습니다.');
+            });
+            $('input').click(function(){
+                console.log('input창을 클랙했습니다');
+            });
+        });
+ 
+    </script>
+</head>
+
+<body>
+    <input type="text" >
+    <button>버튼1</button>
+    <button>버튼2</button>
+    <button>버튼3</button>
+    <button>버튼4</button>
+</body>
+</html>
