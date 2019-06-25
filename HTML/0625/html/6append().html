@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title> append()함수 </title>
+    <script>
+        $(document).ready(function(){
+            
+            var cnt = 0;
+
+            $('#hi').click(function(){
+                
+                //$('p').append( ++cnt , ' : 안녕하세요<br>');   //p태그에 @@@문자열을 맨 끝에 추가 //append()앞에는 요소가 와야하고, 매개변수는 html코드나 객체가 와야한다
+                
+                var str = '<span>'+ ++cnt + ' : 안녕하세요.<span><br>';
+                $(str).appendTo('p'); 
+            });
+
+            $('#p').click(function(){
+                var obj = document.createElement('p');
+                $('body').append(obj);
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <button id="hi">인사</button><button id="p">p태그 추가</button>
+    <p>0: 안녕하세요 <br></p>
+</body>
+</html>

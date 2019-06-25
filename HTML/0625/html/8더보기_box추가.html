@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- <script src="../js/8append()박스추가.js"></script> -->
+    <script src="../js/8-1before()박스추가.js"></script>
+
+    <title>'더보기'버튼클릭하여 박스추가 예제</title>
+    <style>
+        *{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        html{
+            padding: 10px;
+        }
+        body{
+            border-color: green;
+        }
+        .red{
+            border-color: red;
+        }
+        .red::after{    /*이것을 작성해야하는 이유에 대해서 정확하게 아는가?*/
+            clear: both;
+            display: block;
+            content: "";
+        }
+        .inner-box{
+            width: calc(100% / 3);
+            height: 100px;
+            float: left;
+        }
+        button{
+            width: 100%;
+        }
+    </style>   
+</head>
+
+<body>
+    <!-- <div class="red"> js파일8번 예제할때 필요-->
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+    <!-- </div> -->
+    <button>더보기</button>
+    
+</body>
+</html>

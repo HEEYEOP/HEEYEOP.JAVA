@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>형제들 함수</title>
+    <style>
+        *{
+            border: 3px solid black;
+        }
+        .blue{
+            border-color: blue;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            //$('div').siblings().addClass('blue');     //div태그와 같은 부모를 가지는 모든 요소들에 클래스 추가
+            //$('div').siblings('h1').addClass('blue'); //div형제들 중에 h1태그요소들을 검색하여 클래스추가
+        
+            //$('div').next().addClass('blue');         //div태그와 같은 부모를 가지는 요소들 중에서 div태그 바로다음 요소에 클래스추가
+            //$('div').prev().addClass('blue');
+
+            //$('div').nextAll().addClass('blue');
+            //$('div').nextAll('p').addClass('blue');   //다음 요소중 p태그로 한정
+
+            //$('div').nextUntil('p').addClass('blue'); //요소들중 p태그 전까지의 요소들에게 클래스추가
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <h1>안녕1</h1>
+        <h2>안녕2</h2>
+        <p>안녕하세요1</p>
+        <div>안녕하세요2</div>
+        <h1>Hi</h1>
+        <p>Hello</p>
+    </div>
+    <p>안녕하세요3</p>
+    
+</body>
+</html>

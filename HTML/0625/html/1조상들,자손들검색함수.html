@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>조상들검색, 자손들검색</title>
+    <style>
+        *{
+            border: 3px solid black;
+        }
+        .red{
+            border-color: red;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            //----------조상들 검색--------------------------------------------------------//
+
+            //$('span').parents().addClass('red');              //parent() : 부모      //parents()  : 조상
+            //$('span').parents('p').addClass('red');           //span태그의 조상들 중에서 p태그만 찾는것
+            //$('span').parents('p,body').addClass('red');      //p태그 또는 body태그를 검색
+            //$('span').parentsUntil('body').addClass('red');   //sapn태그의 조상중에서 body태그의 전까지만 빨간색 테두리 추가
+
+            //---------------------------------------------------------------------------------//
+
+            //-----------자손들 검색-------------------------------------------------------//
+
+            //$('body').children().addClass('red');         //body태그의 자식!들 검색     //children() : 자식을 검색
+            //$('body').children('div').addClass('red');    //자식들 중에서 div태그 검색하여 클래스 추가
+            //$('body').find('h1').addClass('red');         //body태그의 자손들 중에서 h1태그들만 클래스 추가
+            
+            $('body').find('h1.abc').addClass('red');       //body태그의 자손들 중에서 h1태그이면서 클래스 abc를 가지고 있는 요소들만 검색하여 클래스추가
+        });
+    
+    </script>
+</head>
+
+
+<body>
+    <div>
+        <h1 class="abc">안녕하세요1</h1>
+        <h1>안녕하세요1</h1>
+
+        <h2>안녕하세요2</h2>
+    </div>
+    <p>
+        <span>반갑습니다</span>
+    </p>
+    
+</body>
+</html>

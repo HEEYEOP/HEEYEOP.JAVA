@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <title>sibling()예제 // 박스배경색 호버로 변경하는 예제(피아노 건반처럼)</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        .bg-color{
+            background-color: blueviolet;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            
+            //방법1------------------------------
+            // $('div').mouseenter(function(){
+            //     $(this).siblings().addClass('bg-color');
+            // });
+            // $('div').mouseout(function(){
+            //     $(this).siblings().removeClass('bg-color');
+            // });
+
+            //방법2-------------------------------
+            $('div').hover(function(){
+                $(this).siblings().toggleClass('bg-color');
+            })
+
+
+
+
+        });
+    
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

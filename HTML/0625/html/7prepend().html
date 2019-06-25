@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>prepend()함수</title>
+    <script>
+        $(document).ready(function(){
+            
+            var cnt = 0;
+
+            $('#hi').click(function(){   
+                var str = '<span>'+  ++cnt + ' : 안녕하세요.<span><br>';
+                $(str).prependTo('p'); 
+            });
+
+            $('#p').click(function(){
+                var obj = document.createElement('p');
+                $('body').prepend(obj);
+            });
+        });
+
+    </script>
+</head>
+
+
+<body>
+    <button id="hi">인사</button><button id="p">p태그 추가</button>
+    <p>0: 안녕하세요 <br></p>
+</body>
+</html>

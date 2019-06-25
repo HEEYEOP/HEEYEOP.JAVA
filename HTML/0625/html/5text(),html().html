@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <title>first() last() filter() is() text() html() </title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        .bg-color{
+            background-color: blueviolet;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            //$('div').first().addClass('bg-color'); //div요소들 중에서 첫번쨰 요소에 클래스 추가
+            //$('div').last().addClass('bg-color');
+
+            //$('div').eq(2).addClass('bg-color');    //div요소들 중에서 2번지(3번째)에 클래스추가
+            
+            //$('div').filter('#one').addClass('bg-color');   //div#one요소에 클래스추가
+            //$('div#one').addClass('bg-color');     //위의코드와 동일
+
+            //$('div').not('#one').addClass('bg-color');  //div요소들 중 id가 one인 요소를 제외한 나머지 요소들에 클래스 추가
+            //alert($('div').parent().is('body'));    //div요소의 부모가 body태그인지에 대한 참 또는 거짓을 출력
+
+            //console.log($('#one').text());
+            //$().text(); :요소의 텍스트 가져옴
+            //$().text(문자열); : 요소에 문자열 설정
+
+            //console.log($('#one').html());
+            //$().html(); :요소의 html코드 가져옴 
+            //$().html(문자열); : 요소에 html코드 설정
+
+            var htmlStr = $('#one').html();
+            htmlStr ='<span>1-1</span>' + htmlStr + '<span>1-2</span>'
+            $('#one').html(htmlStr);
+        });
+    </script>
+</head>
+
+
+<body>
+    <div id="one"><span>1</span></div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    
+</body>
+</html>
