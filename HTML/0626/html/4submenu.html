@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>서브메뉴 나오게 하는 예제</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            width: 500px;
+            height: 30px;
+            /* border: 1px solid black; */
+        }
+        li{
+            width: calc(100% / 4);
+            height: 100%; 
+            /* border: 1px solid black; */
+            display: inline-block;
+            float: left;
+            text-align: center;
+            list-style: none;
+        }
+        div{
+            border: 1px solid black;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        
+            display: none;
+        }
+        li>div:nth-child(1){
+            display: block;
+        }
+        .display{
+            display: block;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $('li').click(function(){
+               $('div').removeClass('display');
+                $(this).find('div').toggleClass('display');
+            });
+            
+        });
+    </script>
+</head>
+
+
+<body>
+    <ul>
+        <li>
+            <div>메뉴1</div> 
+            <div>메뉴1-1</div>
+            <div>메뉴1-2</div>
+            <div>메뉴1-3</div>
+        </li>
+        <li>
+            <div>메뉴2</div>
+            <div>메뉴2-1</div>
+            <div>메뉴2-2</div>
+            <div>메뉴2-3</div>
+        </li>
+        <li>
+            <div>메뉴3</div>
+            <div>메뉴3-1</div>
+            <div>메뉴3-2</div>
+            <div>메뉴3-3</div>
+        </li>
+        <li>
+            <div>메뉴4</div>
+            <div>메뉴4-1</div>
+            <div>메뉴4-2</div>
+            <div>메뉴4-3</div>
+        </li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>T코드 nav태그로 상단메뉴 만들기</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+            display: block;
+            float: left;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 48px;
+            font-size: 30px;
+            font-weight: bold;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .bg-color{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $('li').click(function(){
+                //방법2 : 나만 배경색 지정 후  나를 제외한 모든 li태그 배경색지움
+                //$(this).addClass('bg-color');
+                //$('li').not($(this)).removeClass('bg-color');
+
+                //방법3 : 나만 배경색 지정 후 내 형제 li태그의 배경색 지움
+                $(this).addClass('bg-color');
+                $(this).siblings().removeClass('bg-color');
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+    <ul>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+    </ul>
+</body>
+</html>

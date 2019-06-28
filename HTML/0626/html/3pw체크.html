@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>keyup() keydown() keypress()으로 pw체크 예제</title>
+    <script>
+        $(document).ready(function(){
+
+            function equals(){
+                if($('#pw').val() == $('#pwCheck').val())
+                    return true;
+                return false;
+            }
+
+            $('#pwCheck').keyup(function(){
+                //console.log($('#pw').val())
+                //console.log($('#pwCheck').val())
+                if(equals())  //굳이 함수 쓸 필요는 없지만 함수로 써봄
+                    $('div').html('비밀번호가 일치합니다') 
+                else 
+                    $('div').html('비밀번호가 일치하지 않습니다');
+            });
+
+            //오류발생 오류발생-------------------------------------
+            // $('#pwCheck').keypress(function(){ 
+            //     console.log($('#pw').val())
+            //     console.log($('#pwCheck').val())
+            //     if(equals()) $('div').html('비밀번호가 일치합니다') 
+            //     else $('div').html('비밀번호가 일치하지 않습니다');
+            // });
+        });
+
+
+    
+    </script>
+</head>
+<body>
+    <input type="text" id="pw">
+    <input type="text" id="pwCheck">
+    <div></div>
+    
+</body>
+</html>

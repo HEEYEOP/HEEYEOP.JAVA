@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>T코드 select박스로 month/day 선택하기</title>
+    <script>
+        $(document).ready(function(){
+
+            var day = [31,28,31,30,31,30,31,31,30,31,30,31];
+            addDay(1);                      //페이지 로딩 시 첫 일은 기준이 1월이므로 1월에 맞는 일을 넣어준다
+            
+            $('#month').change(function(){
+                var month = $(this).val();
+                addDay(month);
+            });
+
+            function addDay(month){
+                var str = '';               //str은 뒤에서 문자열이 이어서 추가되기때문에 ''로 초기화한다
+                for(var i=1; i<=day[month-1]; i++){
+                    str += '<option value="'+ i +'">'+ i +'일</option>'
+                }
+                $('#day').html(str);
+            }
+        });
+    </script>
+</head>
+
+
+<body>
+    <select id="month">
+        <option value="0">선택</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+    <select id="day"></select>
+</body>
+</html>

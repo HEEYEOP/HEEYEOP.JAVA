@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>nav태그로 상단메뉴 만들기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            width: 500px;
+            height: 30px;
+            border: 1px solid black;
+        }
+        div{
+            width: calc(100% / 4);
+            height: 100%;
+            border: 1px solid black;
+            display: inline-block;
+            float: left;
+            text-align: center;
+        }
+        .bg-color{
+            background: violet;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $('div').click(function(){
+                $('div').not($(this)).removeClass('bg-color'); 
+                $(this).toggleClass('bg-color');
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+    <nav>
+        <div>메뉴1</div>
+        <div>메뉴2</div>
+        <div>메뉴3</div>
+        <div>메뉴4</div>
+    </nav>
+</body>
+</html>

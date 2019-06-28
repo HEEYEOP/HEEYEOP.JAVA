@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script> 
+    <title>T코드 서브메뉴 나오게 하는 예제</title> 
+	<style> 
+		*{ 
+			padding:0; 
+			margin: 0; 
+			box-sizing: border-box;
+		} 
+		li{ 
+			list-style: none; 
+			display: block; 
+			float: left; 
+			width: 200px; 
+			height: 50px;
+			text-align: center; 
+			line-height: 48px; 
+			font-size: 30px;
+			font-weight: bold; 
+			border: 1px solid black; 
+			cursor: pointer;
+		} 
+		.bg-yellow{ 
+			background-color: yellow; 
+		} 
+		.sub-menu{
+			width: 200px; 
+			/* display: none; */ 
+			position: absolute; 
+		} 
+	</style> 
+	<script> 
+		$(document).ready(function(){
+
+			var subMenu = [ 
+							['메뉴1-1','메뉴1-2','메뉴1-3'], 
+							['메뉴2-1','메뉴2-2','메뉴2-3','메뉴2-4'], 
+							['메뉴3-1','메뉴3-2','메뉴3-3','메뉴3-4'], 
+							['메뉴4-1','메뉴4-2']
+						  ]; 
+			var left = [0,200,400,600]; 
+			var top = 50; 
+
+			$('.main-menu li').click(function(){ 
+				$(this).addClass('bg-yellow'); 
+				$(this).siblings().removeClass('bg-yellow'); 
+				//클릭한 메뉴의 텍스트를 가져옴 
+				var numStr = $(this).text(); 
+				//문자열의 마지막 번지부터 끝까지 추출  
+				// => 마지막 문자 하나만 추출 
+				var num = numStr.substring(numStr.length-1); 
+				var str = ''; 
+				//subMenu[num-1].length : 선택된 메뉴의 서브 메뉴가
+				//있는 행의 갯수, 서브 메뉴의 갯수 
+				for(var i=0; i<subMenu[num-1].length; i++){ 
+					str += '<li>'+subMenu[num-1][i]+'</li>' 
+				} 
+				$('.sub-menu').html(str); 
+				$('.sub-menu').css({ 
+					top:top+'px', 
+					left:left[num-1]+'px', 
+					display:'none' 
+				}) 
+				$('.sub-menu').slideDown(500); 
+			}) 
+		}) 
+	</script> 
+</head> 
+
+<body> 
+	<ul class="main-menu"> 
+		<li>메뉴1</li> 
+		<li>메뉴2</li> 
+		<li>메뉴3</li> 
+		<li>메뉴4</li> 
+	</ul> 
+
+	<ul class="sub-menu"></ul> 
+</body> 
+</html>
