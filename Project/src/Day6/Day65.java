@@ -9,7 +9,8 @@ public class Day65 {
 	
 	1. 랜덤한 수를 생성하는 메소드 : random
 	2. (중복되지 않게 하기 위해서) 배열에 검색하려는 수가 있는지 없는지 확인하는 메소드 : contain
-	3. 배열을 생성(1,2를 만족)하는 메소드: createRandArr												*/
+	3. 배열을 생성(1,2를 만족)하는 메소드: createRandArr												
+*/
 	
 
 	

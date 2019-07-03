@@ -229,6 +229,42 @@ a{
 	width: 27px;
 	background-position: -279px 0;
 }
+
+.cal{
+	width: 39px;
+	background-position: -49px -233px;
+
+}
+.info{
+	width: 53px;
+	background-position: 0px -130px;
+
+}
+.flight{
+	width: 40px;
+	background-position: -150px -182px;
+}
+.hotel{
+	width: 26px;
+	background-position: -108px -259px;
+}
+
+
+
+
+
+
+.empty{
+	display: block;
+    margin-top: -8px;
+    margin-left: -10px;
+    width: 62px;
+    height: 28px;
+    border: 1px solid #e3e7ee;
+    background: #fcfdfe;
+}
+
+
 .bar{
 	float: left;
 	margin: 18px 16px 0;
