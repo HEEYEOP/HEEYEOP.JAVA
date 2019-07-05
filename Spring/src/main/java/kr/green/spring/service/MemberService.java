@@ -11,6 +11,9 @@ public interface MemberService {
 	
 	public boolean signin(MemberVO logVO);
 	
+
+	public boolean modify(MemberVO modifyVO, String oldpw);
+	
 	
 
 }

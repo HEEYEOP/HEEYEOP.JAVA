@@ -41,4 +41,25 @@ public class MemberServiceImp implements MemberService{
 		
 		
 	}
+
+	@Override
+	public boolean modify(MemberVO modifyVO, String oldpw) {
+		
+		if(modifyVO == null)
+			return false;
+		
+		MemberVO oVO = memberDao.getMember(modifyVO.getId());
+		
+		if(oldpw.equals(oVO.getPw())) {
+			memberDao.modify(modifyVO);
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+		
+	}
+
+
 }

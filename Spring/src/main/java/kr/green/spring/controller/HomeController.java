@@ -55,7 +55,7 @@ public class HomeController {
 			return "redirect:/signup";
 	}
 	
-	//---------------------------------------------------//
+	//------------------------1---------------------------//
 	
 	@RequestMapping(value = "/signin", method = RequestMethod.GET)    
 	public String signinGet(Model model){ 
@@ -78,6 +78,39 @@ public class HomeController {
 			return "redirect:/signin";
 		}
 	}
+	
+	
+	//----------------------2-----------------------------//
+	
+	@RequestMapping(value = "/member/modify", method = RequestMethod.GET)    
+	public String memberModifyGet(Model model){ 
+		logger.info("회원정보수정 페이지 실행");
+		
+		return "member/modify";
+	}
+	
+	@RequestMapping(value = "/member/modify", method = RequestMethod.POST)    
+	public String memberModifyPost(MemberVO modifyVO, String oldpw){ 
+		logger.info("회원정보 수정 진행중");
+		
+		if(memberService.modify(modifyVO, oldpw)) {
+			System.out.println("회원정보 수정 성공");
+			System.out.println(modifyVO.getPw());
+			System.out.println(oldpw);
+			return "redirect:/";
+					
+		}
+		System.out.println("회원정보 수정 실패");
+		return "redirect:/member/modify";
+		
+		
+		
+				
+		
+		
+	}
+	
+	
 	
 	
 	
