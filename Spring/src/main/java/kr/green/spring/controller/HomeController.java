@@ -37,6 +37,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)    
 	public String signupGet(Model model){ 
 		logger.info("회원가입페이지 실행");
@@ -53,4 +54,32 @@ public class HomeController {
 		else
 			return "redirect:/signup";
 	}
+	
+	//---------------------------------------------------//
+	
+	@RequestMapping(value = "/signin", method = RequestMethod.GET)    
+	public String signinGet(Model model){ 
+		logger.info("로그인페이지 실행");
+		
+		return "signin";
+	}
+	
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)    
+	public String signinPost(MemberVO logVO){ 
+		logger.info("로그인 진행중");
+		//System.out.println(logVO);
+		
+		if(memberService.signin(logVO)) {
+			System.out.println("로그인 성공");
+			return "redirect:/";
+		}
+		else {
+			System.out.println("로그인 실패");
+			return "redirect:/signin";
+		}
+	}
+	
+	
+	
+	
 }

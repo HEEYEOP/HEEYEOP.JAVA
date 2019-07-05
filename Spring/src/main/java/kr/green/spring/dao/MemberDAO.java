@@ -4,10 +4,8 @@ import kr.green.spring.vo.MemberVO;
 
 public interface MemberDAO {
 
-	MemberVO getMember(String id);
+	public MemberVO getMember(String id);
 	
-	void signup(MemberVO mVO);
-	 
-	
+	public void signup(MemberVO mVO);
 
 }

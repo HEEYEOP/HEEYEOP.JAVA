@@ -25,4 +25,20 @@ public class MemberServiceImp implements MemberService{
 		memberDao.signup(mVO);
 		return true;
 	}
+
+	@Override
+	public boolean signin(MemberVO logVO) {
+		if(logVO == null)	//예외처리
+			return false;
+		MemberVO oVO = memberDao.getMember(logVO.getId()); //객체를 사용할때는 항상 null값이 들어갈 수 있음에 주의하여 위에 예외처리를 작성해준다
+		if(oVO == null)
+			return false;
+		else if(logVO.getPw().equals(oVO.getPw()))
+			return true;
+		
+		return false;
+		
+		
+		
+	}
 }
