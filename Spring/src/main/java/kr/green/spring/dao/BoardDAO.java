@@ -8,4 +8,6 @@ public interface BoardDAO {
 
 	ArrayList<BoardVO> getBoardList();
 
+	BoardVO getBoard(BoardVO obj);
+
 }

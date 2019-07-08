@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import kr.green.spring.service.BoardService;
 import kr.green.spring.vo.BoardVO;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 @RequestMapping(value="/board")
-
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -29,12 +27,26 @@ public class BoardController {
 	public String boardListGet(Model model){ 
 		logger.info("게시판페이지 실행");
 		
-		ArrayList<BoardVO> boardList = boardService.getBoardList();
+		ArrayList<BoardVO> boardList = boardService.getBoardList(); //DB에 있는 게시글 전부를 boardList로 받는 것. 왜냐, getBoardList()가 전부 선택해서 가져오기때문
 		for(BoardVO tmp:boardList) {
 			System.out.println(tmp);
 		}
 		model.addAttribute("list", boardList);
+		
+		
 		return "board/list";
+	}
+	
+	@RequestMapping(value = "/display", method=RequestMethod.GET)    
+	public String boardDisplayGet(Model model, BoardVO obj){ //BoardVO obj는  기본키값 num= @@@ 을 넘긴다. 
+		logger.info("게시판 디스플레이페이지 실행");
+		
+		
+		BoardVO bVO = boardService.getBoard(obj);
+		model.addAttribute("board", bVO);
+		
+		
+		return "board/display";
 	}
 
 }

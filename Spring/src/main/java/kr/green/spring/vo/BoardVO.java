@@ -1,5 +1,6 @@
 package kr.green.spring.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BoardVO {
@@ -10,6 +11,8 @@ public class BoardVO {
 	private Date registered;
 	private String file;
 	private int views;
+	
+	
 	public int getNum() {
 		return num;
 	}
@@ -34,8 +37,10 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getRegistered() {
-		return registered;
+	public String getRegistered() {
+		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		return f.format(registered);
 	}
 	public void setRegistered(Date registered) {
 		this.registered = registered;
