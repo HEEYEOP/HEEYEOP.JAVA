@@ -61,7 +61,7 @@ public class HomeController {
 	public String signinGet(Model model){ 
 		logger.info("로그인페이지 실행");
 		
-		return "signin";
+		return "signin"; 
 	}
 	
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)    
@@ -102,13 +102,8 @@ public class HomeController {
 		}
 		System.out.println("회원정보 수정 실패");
 		return "redirect:/member/modify";
-		
-		
-		
-				
-		
-		
 	}
+	
 	
 	
 	

@@ -51,6 +51,9 @@ public class MemberServiceImp implements MemberService{
 		MemberVO oVO = memberDao.getMember(modifyVO.getId());
 		
 		if(oldpw.equals(oVO.getPw())) {
+			if(modifyVO.getPw().length() == 0) {
+				modifyVO.setPw(oldpw);
+			}
 			memberDao.modify(modifyVO);
 			return true;
 		}else {

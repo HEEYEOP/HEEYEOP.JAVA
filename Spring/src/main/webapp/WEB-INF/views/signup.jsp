@@ -69,6 +69,7 @@
 			return true;
 		})	
 	})
+	
 	</script>	
 
 </head>
