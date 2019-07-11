@@ -28,4 +28,10 @@ public class BoardServiceImp implements BoardService {
 		return boardDao.getBoard(obj);
 	}
 
+	@Override
+	public void updateViews(BoardVO obj) {
+		boardDao.updateViews(obj);
+		
+	}
+
 }

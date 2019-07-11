@@ -35,11 +35,14 @@ public class BoardController {
 		
 		
 		return "board/list";
-	}
+	} 
 	
 	@RequestMapping(value = "/display", method=RequestMethod.GET)    
-	public String boardDisplayGet(Model model, BoardVO obj){ //BoardVO obj는  기본키값 num= @@@ 을 넘긴다. 
+	public String boardDisplayGet(Model model, BoardVO obj){ //여기서 BoardVO obj는  기본키값 num= @@@ 을 넘긴다.
 		logger.info("게시판 디스플레이페이지 실행");
+		
+		//조회수 증가
+		boardService.updateViews(obj);
 		
 		
 		BoardVO bVO = boardService.getBoard(obj);

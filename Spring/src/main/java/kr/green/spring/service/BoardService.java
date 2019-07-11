@@ -10,5 +10,8 @@ public interface BoardService {
 
 	BoardVO getBoard(BoardVO obj);
 
+	void updateViews(BoardVO obj);
+	
+
 
 }
