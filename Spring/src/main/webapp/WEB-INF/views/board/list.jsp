@@ -13,6 +13,7 @@
 
 <body>
 	<h1>게시판</h1>
+	<h6>현재 로그인 정보 ${user}</h6>  <!-- 여기 user는 세션에서 가져온 user정보라는 것을 잊지말자 -->
 	
 	<table class="table">
 		<tr>

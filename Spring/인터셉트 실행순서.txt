@@ -1,0 +1,18 @@
+﻿메인페이지인 /에서 아이디와 비밀번호를 입력하여 /signin페이지로 가는 로그인 시도(왜 /signin? 메인페이지에서 action="spring/signin" 이라고 설정해줬기 때문. 
+
+가기전에 /signin 과 관련한 인터셉터가 있는지 확인하기 위해 servlet에 가서 확인해본다.
+=> Unauth와 loginInter 두개가 있음
+
+=> Unauth가 실행(왜? preHandle이기 때문) => /signin 있는 컨트롤러 실행되고 /로 가라고 함 
+=> /로 가야하는데 loginInter의 PostHandle이 실행 되고(왜?? /signin에 인터셉터 두개였으니까 다음 단계로 넘어가기전에 남아있는 나머지 하나도 해줘야지!!) ===???? loginInter로 변경했는데 뒤어 설명이 안맞음
+	이전과 달리 세션에 user 정보가 있기 때문에 RequestMapping이 /인 컨트롤러로 가지 않고 /board/list로 가야함
+=> Auth의 preHandle이 실행되고 아무일도 안일어남
+=> RequestMapping이 /board/list인 컨트롤러의 메소드가 실행
+=> list.jsp가 화면에 출력
+
+//-----------------------------------------------
+로그인을 하지 않고 url에 /board/list를 입력하고 엔터를 쳤을 때 실행 순서를 작성하시오
+/board/list로 이동 => Auth => /로 이동 => Unauth => 컨트롤러에 /로 이동 => jsp 실행
+
+
+

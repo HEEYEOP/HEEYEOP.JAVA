@@ -16,4 +16,8 @@
 	<update id="updateViews">
 		update board set views = views+1 where num=#{num}
 	</update>
+	
+	<update id="updateBoard">
+		update board set title=#{title},  file=#{file}, views=#{views} where num=#{num}
+	</update>
 </mapper>

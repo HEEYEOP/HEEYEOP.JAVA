@@ -14,4 +14,6 @@ public interface BoardDAO {
 
 	void updateViews(BoardVO obj);
 
+	void updateBoard(BoardVO obj);
+
 }

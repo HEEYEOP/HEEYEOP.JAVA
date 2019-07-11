@@ -9,7 +9,7 @@ public interface MemberService {
 	
 	public boolean signup(MemberVO mVO);
 	
-	public boolean signin(MemberVO logVO);
+	public MemberVO signin(MemberVO logVO);
 	
 
 	public boolean modify(MemberVO modifyVO, String oldpw);

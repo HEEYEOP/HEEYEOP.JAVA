@@ -30,7 +30,14 @@ public class BoardServiceImp implements BoardService {
 
 	@Override
 	public void updateViews(BoardVO obj) {
-		boardDao.updateViews(obj);
+		//boardDao.updateViews(obj);
+		BoardVO tmp = boardDao.getBoard(obj);
+		if(tmp != null) {
+			int oldViews = tmp.getViews();
+			tmp.setViews(oldViews+1);
+			System.out.println(tmp);
+			boardDao.updateBoard(tmp);
+		}
 		
 	}
 

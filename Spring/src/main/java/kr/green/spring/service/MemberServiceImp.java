@@ -27,16 +27,16 @@ public class MemberServiceImp implements MemberService{
 	}
 
 	@Override
-	public boolean signin(MemberVO logVO) {
+	public MemberVO signin(MemberVO logVO) {
 		if(logVO == null)	//예외처리
-			return false;
+			return null;
 		MemberVO oVO = memberDao.getMember(logVO.getId()); //객체를 사용할때는 항상 null값이 들어갈 수 있음에 주의하여 위에 예외처리를 작성해준다
 		if(oVO == null)
-			return false;
+			return null;
 		else if(logVO.getPw().equals(oVO.getPw()))
-			return true;
+			return oVO;
 		
-		return false;
+		return null;
 		
 		
 		
@@ -59,9 +59,7 @@ public class MemberServiceImp implements MemberService{
 		}else {
 			return false;
 		}
-		
-		
-		
+			
 	}
 
 

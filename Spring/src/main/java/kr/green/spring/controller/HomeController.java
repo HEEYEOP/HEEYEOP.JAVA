@@ -65,12 +65,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)    
-	public String signinPost(MemberVO logVO){ 
+	public String signinPost(Model model ,MemberVO logVO){ 
 		logger.info("로그인 진행중");
 		//System.out.println(logVO);
 		
-		if(memberService.signin(logVO)) {
+		MemberVO user = memberService.signin(logVO); 
+		if(user != null) {
 			System.out.println("로그인 성공");
+			model.addAttribute("user", user);
 			return "redirect:/";
 		}
 		else {
