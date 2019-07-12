@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-<title>display</title>
+<title>수정페이지</title>
 </head>
 <body>
 

@@ -20,4 +20,8 @@
 	<update id="updateBoard">
 		update board set title=#{title}, contents=#{contents}, file=#{file}, views=#{views} where num=#{num}
 	</update>
+	
+	<insert id="insertBoard">
+		insert into board(title, contents,writer, file) values(#{title}, #{contents},#{writer}, #{file})
+	</insert>
 </mapper>

@@ -2,6 +2,8 @@ package kr.green.spring.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,12 +71,13 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)    
-	public String modifyPost(Model model, BoardVO bVO){ 
+	public String modifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
 		logger.info("수정페이지 수정 실행");
 		System.out.println(bVO); //수정한 게시물
 		
-		boardService.updateboard(bVO);
+		boardService.updateBoard(bVO, r); //현재 세션에 저장되어 있는(로그인한 사람의 정보) 사람의 정보와 업데이트 하려고 하는 작성자와 같은지 확인해라
 		
+		 model.addAttribute("num", bVO.getNum());
 		return "redirect:/board/display";
 	}
 	
@@ -94,11 +97,30 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)    
-	public String registerGet(Model model){ 
+	public String registerGet(Model model, BoardVO obj){ 
 		logger.info("등록페이지 실행");
+		model.addAttribute("userID", obj.getWriter());
 		
 		return "/board/register";
 	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)    
+	public String registerPost(Model model, BoardVO bVO){ 
+		logger.info("게시물 등록");
+		System.out.println(bVO); 
+		boardService.insertBoard(bVO);
+		 
+		
+		return "/board/register";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)    
 	public String deleteGet(Model model){ 

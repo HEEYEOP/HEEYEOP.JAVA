@@ -41,6 +41,9 @@
 		</c:forEach>
 		 
 	</table>
+	<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">
+			<button type="button" class="btn btn-outline-primary">등록</button>
+		</a>
 
 </body>
 </html>

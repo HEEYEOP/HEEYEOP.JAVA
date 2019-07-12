@@ -2,11 +2,14 @@ package kr.green.spring.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.BoardDAO;
 import kr.green.spring.vo.BoardVO;
+import kr.green.spring.vo.MemberVO;
 
 @Service
 public class BoardServiceImp implements BoardService {
@@ -42,8 +45,19 @@ public class BoardServiceImp implements BoardService {
 	}
 
 	@Override
-	public void updateboard(BoardVO bVO) {
-		boardDao.updateBoard(bVO);
+	public void updateBoard(BoardVO bVO, HttpServletRequest r) {
+		MemberVO user =(MemberVO)r.getSession().getAttribute("user");
+		if(user == null || bVO == null) return ;
+		if(bVO.getWriter() != null && bVO.getWriter().equals(user.getId())) {
+			boardDao.updateBoard(bVO);
+		}
+	}
+
+	@Override
+	public void insertBoard(BoardVO bVO) {
+		
+		boardDao.insertBoard(bVO);
+		
 	}
 
 	
