@@ -16,28 +16,28 @@
 	<form action="" method="POST">
 		<div class="form-group">
   			<label >제목</label>
-  			<input type="text" class="form-control" name="title" value="${board.title}" >
+  			<input type="text" class="form-control" name="title" >
 		</div>
 		<div class="form-group">
   			<label >내용</label>
-  			<textarea rows="10"  class="form-control" name="contents" >${board.contents}</textarea>
+  			<textarea rows="10"  class="form-control" name="contents" ></textarea>
 		</div>
 		
 		<div class="form-group">
   			<label >작성자</label>
-  			<input type="text" class="form-control" name="" value="${userID}" readonly>
+  			<input type="text" class="form-control"  value="${userID}" readonly>
 		</div>
 		<div class="form-group">
   			<label >작성일</label>
-  			<input type="text" class="form-control" name="" value="${board.registered}" readonly >
+  			<input type="text" class="form-control"  readonly >
 		</div>
 		<div class="form-group">
   			<label >조회수</label>
-  			<input type="text" class="form-control" name="" value="${board.views}" readonly >
+  			<input type="text" class="form-control"  readonly >
 		</div>
 		<div class="form-group">
   			<label >파일</label>
-  			<input type="text" class="form-control" name="file" value="${board.file}" >
+  			<input type="text" class="form-control" name="file" >
 		</div>
 		
 		
@@ -50,9 +50,7 @@
 			<button type="button" class="btn btn-outline-primary">목록</button>
 		</a>
 		
-		
-		
-		<br>${board}
+		<br>현재 로그인정보(세션에 저장되어 있는 정보)=====>${user}
 	
 	</div>
 

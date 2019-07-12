@@ -45,9 +45,8 @@ public class BoardController {
 	public String boardDisplayGet(Model model, BoardVO obj){ //여기서 BoardVO obj는  기본키값 num= @@@ 을 넘긴다.
 		logger.info("게시판 디스플레이페이지 실행");
 		
-		//조회수 증가
+		//조회수 증가 (display는 게시물 하나를 상세보는 페이지이기때문에 조회수를 증가시키는 일을 해줘야한다)
 		boardService.updateViews(obj);
-		
 		
 		BoardVO bVO = boardService.getBoard(obj);
 		model.addAttribute("board", bVO);
@@ -62,9 +61,9 @@ public class BoardController {
 	public String boardModifyGet(Model model, BoardVO obj ){ 
 		logger.info("수정페이지 실행");
 		
-		System.out.println(obj);
+		System.out.println("원래 존재하는, 수정하려고 하는 게시물     "+obj);
 		BoardVO bVO = boardService.getBoard(obj);
-		model.addAttribute("board", bVO);
+		model.addAttribute("board", bVO);		//일단 수정페이지에 수정하려고 하는 게시물의 정보를 가져와야 하니까 model에 담아서 화면에 띄어줌
 		
 		
 		return "/board/modify";
@@ -72,28 +71,14 @@ public class BoardController {
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)    
 	public String modifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
-		logger.info("수정페이지 수정 실행");
-		System.out.println(bVO); //수정한 게시물
+		logger.info("게시물 수정 실행");
+		System.out.println("수정하여 업데이트 할 게시물   "+bVO);
 		
 		boardService.updateBoard(bVO, r); //현재 세션에 저장되어 있는(로그인한 사람의 정보) 사람의 정보와 업데이트 하려고 하는 작성자와 같은지 확인해라
 		
 		 model.addAttribute("num", bVO.getNum());
 		return "redirect:/board/display";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)    
@@ -104,14 +89,16 @@ public class BoardController {
 		return "/board/register";
 	}
 	
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)    
 	public String registerPost(Model model, BoardVO bVO){ 
 		logger.info("게시물 등록");
-		System.out.println(bVO); 
+		System.out.println("새로 등록할 게시물   "+bVO); 
+		
 		boardService.insertBoard(bVO);
 		 
 		
-		return "/board/register";
+		return "redirect:/board/list";
 	}
 	
 	
