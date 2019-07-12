@@ -5,8 +5,8 @@
 
 <html>
 <head>
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <title>board</title>
 </head>
 
@@ -14,6 +14,10 @@
 <body>
 	<h1>게시판</h1>
 	<h6>현재 로그인 정보 ${user}</h6>  <!-- 여기 user는 세션에서 가져온 user정보라는 것을 잊지말자 -->
+	<nav class="navbar navbar-expand-sm bg-light">
+		<a class="nav-link" href="<%=request.getContextPath()%>/signout">로그아웃</a>
+	</nav>
+	
 	
 	<table class="table">
 		<tr>

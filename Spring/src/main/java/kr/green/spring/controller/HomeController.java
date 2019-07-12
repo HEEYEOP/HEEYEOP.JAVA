@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,6 +109,15 @@ public class HomeController {
 		return "redirect:/member/modify";
 	}
 	
+	//로그아웃 기능//
+	
+	@RequestMapping(value="/signout")
+	public String signout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("user");
+		
+		return "redirect:/";
+	}
 	
 	
 	
