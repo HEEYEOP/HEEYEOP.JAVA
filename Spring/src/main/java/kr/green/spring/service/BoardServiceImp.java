@@ -41,4 +41,11 @@ public class BoardServiceImp implements BoardService {
 		
 	}
 
+	@Override
+	public void updateboard(BoardVO bVO) {
+		boardDao.updateBoard(bVO);
+	}
+
+	
+
 }

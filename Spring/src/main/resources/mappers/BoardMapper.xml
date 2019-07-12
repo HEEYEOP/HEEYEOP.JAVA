@@ -18,6 +18,6 @@
 	</update>
 	
 	<update id="updateBoard">
-		update board set title=#{title},  file=#{file}, views=#{views} where num=#{num}
+		update board set title=#{title}, contents=#{contents}, file=#{file}, views=#{views} where num=#{num}
 	</update>
 </mapper>
