@@ -110,11 +110,22 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)    
-	public String deleteGet(Model model){ 
+	public String deleteGet(Model model, BoardVO obj){ 
 		logger.info("삭제페이지 실행");
 		
+		System.out.println(obj);
+		BoardVO bVO = boardService.getBoard(obj); 
+		if( bVO != null) {
+			boardService.deleteBoard(bVO);
+			return "redirect:/board/list";
+		}
 		return "/board/delete";
+		
+		
+	
 	}
+	
+	
 	
 
 }

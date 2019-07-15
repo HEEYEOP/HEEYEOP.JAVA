@@ -18,4 +18,6 @@ public interface BoardDAO {
 
 	void insertBoard(BoardVO bVO);
 
+	void deleteBoard(BoardVO bVO);
+
 }

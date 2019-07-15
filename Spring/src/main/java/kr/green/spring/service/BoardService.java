@@ -18,6 +18,8 @@ public interface BoardService {
 
 	void insertBoard(BoardVO bVO);
 
+	void deleteBoard(BoardVO bVO);
+
 
 
 }

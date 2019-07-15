@@ -24,4 +24,8 @@
 	<insert id="insertBoard">
 		insert into board(title, contents,writer, file) values(#{title}, #{contents},#{writer}, #{file})
 	</insert>
+	
+	<delete id="deleteBoard">
+		delete  from board where num = #{num}
+	</delete>
 </mapper>

@@ -60,6 +60,15 @@ public class BoardServiceImp implements BoardService {
 		
 	}
 
+	//-------------------------------------------------------------------------//
+	
+	
+	@Override
+	public void deleteBoard(BoardVO bVO) {
+		boardDao.deleteBoard(bVO);
+		
+	}
+
 	
 
 }
