@@ -58,16 +58,19 @@ public class BoardController {
 	//게시판 수정 삭제 등록 기능
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)    
-	public String boardModifyGet(Model model, BoardVO obj ){ 
+	public String boardModifyGet(Model model, BoardVO obj, HttpServletRequest r ){ 
 		logger.info("수정페이지 실행");
 		
 		System.out.println("원래 존재하는, 수정하려고 하는 게시물     "+obj);
+		
 		BoardVO bVO = boardService.getBoard(obj);
 		model.addAttribute("board", bVO);		//일단 수정페이지에 수정하려고 하는 게시물의 정보를 가져와야 하니까 model에 담아서 화면에 띄어줌
-		
-		
+			
 		return "/board/modify";
+			
+		
 	}
+	
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)    
 	public String boardModifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
@@ -84,6 +87,7 @@ public class BoardController {
 	@RequestMapping(value = "/register", method = RequestMethod.GET)    
 	public String boardRegisterGet(Model model){ 
 		logger.info("등록페이지 실행");
+		
 		
 		return "/board/register";
 	}
