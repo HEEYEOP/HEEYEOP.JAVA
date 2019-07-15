@@ -70,7 +70,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)    
-	public String modifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
+	public String boardModifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
 		logger.info("게시물 수정 실행");
 		System.out.println("수정하여 업데이트 할 게시물   "+bVO);
 		
@@ -82,18 +82,17 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)    
-	public String registerGet(Model model, BoardVO obj){ 
+	public String boardRegisterGet(Model model){ 
 		logger.info("등록페이지 실행");
-		model.addAttribute("userID", obj.getWriter());
 		
 		return "/board/register";
 	}
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)    
-	public String registerPost(Model model, BoardVO bVO){ 
+	public String boardRegisterPost(Model model, BoardVO bVO){ 
 		logger.info("게시물 등록");
-		System.out.println("새로 등록할 게시물   "+bVO); 
+		System.out.println("새로 등록할 게시물   "+ bVO); 
 		
 		boardService.insertBoard(bVO);
 		 
@@ -104,11 +103,7 @@ public class BoardController {
 	
 	
 	
-	
-	
-	
-	
-	
+
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)    
 	public String deleteGet(Model model, BoardVO obj){ 
 		logger.info("삭제페이지 실행");
@@ -117,9 +112,9 @@ public class BoardController {
 		BoardVO bVO = boardService.getBoard(obj); 
 		if( bVO != null) {
 			boardService.deleteBoard(bVO);
-			return "redirect:/board/list";
+			
 		}
-		return "/board/delete";
+		return "redirect:/board/list";
 		
 		
 	

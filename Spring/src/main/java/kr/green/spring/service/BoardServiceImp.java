@@ -65,6 +65,7 @@ public class BoardServiceImp implements BoardService {
 	
 	@Override
 	public void deleteBoard(BoardVO bVO) {
+		if(bVO.getNum() <= 0 ) return ;
 		boardDao.deleteBoard(bVO);
 		
 	}

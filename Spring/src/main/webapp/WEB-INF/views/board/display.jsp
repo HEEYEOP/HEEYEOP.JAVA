@@ -38,8 +38,12 @@
   			<label >파일</label>
   			<input type="text" class="form-control" name="title" value="${board.file}" readonly>
 		</div>
+		
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-primary">목록</button>
+		</a>
+		<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">
+			<button type="button" class="btn btn-outline-primary">등록</button>
 		</a>
 		
 		<c:if test="${user.id eq board.writer }">
