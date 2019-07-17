@@ -21,6 +21,6 @@ public interface BoardDAO {
 
 	void deleteBoard(BoardVO bVO);
 
-	int getTotalCount();
+	int getTotalCount(Criteria cri);
 
 }

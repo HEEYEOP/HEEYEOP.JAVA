@@ -6,7 +6,12 @@
 <mapper namespace="kr.green.spring.dao.BoardDAO">
 
 	<select id="getBoardList" resultType="kr.green.spring.vo.BoardVO"> <!-- !!! select는 resultType이 꼭 있다는것을 잊지말자!!! -->
-		select * from board where valid ='I' limit #{pageStart}, #{perPageNum}
+		select * from board where valid ='I'  
+			<if test="type == 1">and title like concat('%',#{search},'%')</if>
+			<if test="type == 2">and contents like concat('%',#{search},'%')</if>
+			<if test="type == 3">and writer like concat('%',#{search},'%')</if>
+		  order by num desc 
+		  limit #{pageStart}, #{perPageNum}
 	</select>
 	
 	<select id="getBoard" resultType="kr.green.spring.vo.BoardVO">
@@ -32,6 +37,9 @@
 	
 	<select id="getTotalCount" resultType="int">
 		select count(*) from board where valid='I'
+			<if test="type == 1">and title like concat('%',#{search},'%')</if>
+			<if test="type == 2">and contents like concat('%',#{search},'%')</if>
+			<if test="type == 3">and writer like concat('%',#{search},'%')</if>
 	</select>
 	
 	

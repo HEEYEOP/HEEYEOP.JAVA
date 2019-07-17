@@ -36,14 +36,20 @@ public class BoardController {
 		cri.setPerPageNum(2);
 		ArrayList<BoardVO> boardList = boardService.getBoardList(cri); //DB에 있는 게시글 전부를 boardList로 받는 것. 왜냐, getBoardList()가 전부 선택해서 가져오기때문
 		PageMaker pm = new PageMaker();
+		System.out.println("이건 크리크리"+ cri);
 		
 		//pm의 현재 페이지 정보 설정
 		pm.setCriteria(cri);
 		//pm의 displayPageNum 설정
 		pm.setDisplayPageNum(5); //displayPageNum은 페이지네이션의 갯수
 		//pm의 총 게시글 수 설정
-		int totalCount = boardService.getTotalCount();
+		int totalCount = boardService.getTotalCount(cri);
 		pm.setTotalCount(totalCount);
+		
+		System.out.println("이건 피엠피엠"+ pm);
+
+		
+		
 		model.addAttribute("pageMaker", pm);
 		
 		
