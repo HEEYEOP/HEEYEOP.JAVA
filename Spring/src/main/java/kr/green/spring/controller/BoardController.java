@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import kr.green.spring.pagination.Criteria;
+import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.service.MemberService;
 import kr.green.spring.vo.BoardVO;
@@ -28,13 +30,23 @@ public class BoardController {
 
 	
 	@RequestMapping(value = "/list", method=RequestMethod.GET)    
-	public String boardListGet(Model model){ 
+	public String boardListGet(Model model, Criteria cri){ 
 		logger.info("게시판페이지 실행");
 		
-		ArrayList<BoardVO> boardList = boardService.getBoardList(); //DB에 있는 게시글 전부를 boardList로 받는 것. 왜냐, getBoardList()가 전부 선택해서 가져오기때문
-		for(BoardVO tmp:boardList) {
-			System.out.println(tmp);
-		}
+		cri.setPerPageNum(2);
+		ArrayList<BoardVO> boardList = boardService.getBoardList(cri); //DB에 있는 게시글 전부를 boardList로 받는 것. 왜냐, getBoardList()가 전부 선택해서 가져오기때문
+		PageMaker pm = new PageMaker();
+		
+		//pm의 현재 페이지 정보 설정
+		pm.setCriteria(cri);
+		//pm의 displayPageNum 설정
+		pm.setDisplayPageNum(5); //displayPageNum은 페이지네이션의 갯수
+		//pm의 총 게시글 수 설정
+		int totalCount = boardService.getTotalCount();
+		pm.setTotalCount(totalCount);
+		model.addAttribute("pageMaker", pm);
+		
+		
 		model.addAttribute("list", boardList);
 		
 		

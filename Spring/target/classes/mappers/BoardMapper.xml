@@ -6,7 +6,7 @@
 <mapper namespace="kr.green.spring.dao.BoardDAO">
 
 	<select id="getBoardList" resultType="kr.green.spring.vo.BoardVO"> <!-- !!! select는 resultType이 꼭 있다는것을 잊지말자!!! -->
-		select * from board where valid ='I'
+		select * from board where valid ='I' limit #{pageStart}, #{perPageNum}
 	</select>
 	
 	<select id="getBoard" resultType="kr.green.spring.vo.BoardVO">
@@ -29,4 +29,13 @@
 		<!-- 방법1은 실제로DB에서 튜플을 삭제하는 방법===>	delete  from board where num = #{num} -->
 		update board set valid='D' where num=#{num}
 	</update>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board where valid='I'
+	</select>
+	
+	
+	
+	
+	
 </mapper>

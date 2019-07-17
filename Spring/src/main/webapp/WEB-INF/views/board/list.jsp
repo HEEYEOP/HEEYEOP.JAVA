@@ -41,6 +41,31 @@
 		</c:forEach>
 		 
 	</table>
+	<ul class="pagination" style="justify-content: center;">
+	    <c:if test="${pageMaker.prev}">
+	        <li class="page-item">
+	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}">Previous</a>
+	        </li>
+	    </c:if>
+	    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage}" var="index">
+	        <c:if test="${pageMaker.criteria.page == index }">
+		        <li class="page-item active ">
+		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}">${index}</a>
+		        </li>
+	        </c:if>
+	        <c:if test="${pageMaker.criteria.page != index }">
+		        <li class="page-item  ">
+		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}">${index}</a>
+		        </li>
+	        </c:if>
+	    </c:forEach>
+	    <c:if test="${pageMaker.next}">
+	        <li class="page-item">
+	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}">Next</a>
+	        </li>
+	    </c:if>
+	</ul>
+	
 	<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">
 			<button type="button" class="btn btn-outline-primary">등록</button>
 	</a>
