@@ -77,7 +77,7 @@ public class PageMaker {
 	@Override
 	public String toString() {
 		return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage=" + endPage + ", prev="
-				+ prev + ", next=" + next + ", displayPageNum=" + displayPageNum + ", criteria=" + criteria + "]";
+				+ prev + ", next=" + next + ", displayPageNum=" + displayPageNum + "," + criteria + "]";
 	}
 	
 

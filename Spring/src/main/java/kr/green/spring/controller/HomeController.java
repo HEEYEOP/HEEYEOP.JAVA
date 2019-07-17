@@ -115,6 +115,8 @@ public class HomeController {
 	public String signout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("user");
+		logger.info("로그아웃 되었습니다 ");
+
 		
 		return "redirect:/";
 	}

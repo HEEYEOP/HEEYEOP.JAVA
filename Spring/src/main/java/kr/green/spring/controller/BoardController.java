@@ -33,8 +33,8 @@ public class BoardController {
 	public String boardListGet(Model model, Criteria cri){ 
 		logger.info("게시판페이지 실행");
 		
-		cri.setPerPageNum(2);
-		ArrayList<BoardVO> boardList = boardService.getBoardList(cri); //DB에 있는 게시글 전부를 boardList로 받는 것. 왜냐, getBoardList()가 전부 선택해서 가져오기때문
+		cri.setPerPageNum(2); //여기서 cri의 PerPage만 설정해주는 이유는, 사실 기본생성자를 통해서 자동으로 다 기본설정되지만 내가 코드 테스트를 편하게 하기위해서 일부러 2라고 설정해주었다
+		ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
 		PageMaker pm = new PageMaker();
 		System.out.println("이건 크리크리"+ cri);
 		

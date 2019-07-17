@@ -56,6 +56,7 @@
 		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
 		        </li>
 	        </c:if>
+	        
 	        <c:if test="${pageMaker.criteria.page != index}">
 		        <li class="page-item">
 		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
@@ -69,18 +70,26 @@
 	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Next</a>
 	        </li>
 	    </c:if>
+	    
 	</ul>
+	
+	
 	<form class="float-right" method="GET" action="<%=request.getContextPath()%>/board/list">
+		
 		<select name="type">
 			<option value="0">선택</option>
 			<option value="1" <c:if test="${pageMaker.criteria.type eq 1}">selected</c:if>>제목</option>
 			<option value="2" <c:if test="${pageMaker.criteria.type eq 2}">selected</c:if>>내용</option>
 			<option value="3" <c:if test="${pageMaker.criteria.type eq 3}">selected</c:if>>작성자</option>
 		</select>
-		<input type="text" name="search" value="${pageMaker.criteria.search}">
-		<button type="submit" class="btn btn-outline-primary">검색</button>
 		
+		<input type="text" name="search" value="${pageMaker.criteria.search}">
+		
+		<button type="submit" class="btn btn-outline-primary">검색</button>
 	</form>
+	
+	
+	
 	
 	<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">
 			<button type="button" class="btn btn-outline-primary">등록</button>
