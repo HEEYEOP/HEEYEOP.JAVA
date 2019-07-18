@@ -47,10 +47,17 @@
 			return true;
 		return false;
 	}
+	
+	var isCheck = false;
+	
 	$(document).ready(function(){
 		$('#signup').submit(function(){
 			if(!checkLength('#signup input[name=id]',8,13)){
 				alert('아이디는 8~13자리입니다.');
+				return false;
+			}
+			if(!isCheck){ 
+				alert('아이디 중복 체크를 해주세요')
 				return false;
 			}
 			if(!checkLength('#signup input[name=pw]',8,13)){
@@ -65,9 +72,12 @@
 				alert('이메일을 입력해주세요')
 				return false;
 			}
+			
 			alert('회원가입에 성공했습니다.');
 			return true;
 		})	
+		
+		
 		
 		$('#dup').click(function(){
 			var id = $('input[name=id]').val();
@@ -82,15 +92,20 @@
 		        dataType:"json",
 		        contentType:"application/json; charset=UTF-8",
 		        success : function(data){
-		            if(data.isMember){
+		            if(!data.isMember){
+
 		            	alert('회원 가입이 가능한 아이디입니다');
+		            	isCheck = true;     	
 		            }else{
 		            	alert('해당 아이디는 이미 존재합니다');
+		            	isCheck = false;
 		            }
 		        }
 		    });
 		})
-		
+		$('input[name=id]').change(function(){
+			isCheck = false;
+		})
 	})
 	
 	</script>	

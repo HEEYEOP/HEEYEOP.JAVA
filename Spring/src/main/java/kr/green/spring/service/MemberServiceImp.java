@@ -80,12 +80,10 @@ public class MemberServiceImp implements MemberService{
 
 	@Override
 	public boolean isMember(String id) {
-		if(id == null)
-			return false;
 		MemberVO dbMember = memberDao.getMember(id);
 		if(dbMember == null)
-			return true;
-		return false;
+			return false;
+		return true;
 	}
 
 
