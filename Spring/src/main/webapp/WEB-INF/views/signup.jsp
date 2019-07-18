@@ -68,6 +68,29 @@
 			alert('회원가입에 성공했습니다.');
 			return true;
 		})	
+		
+		$('#dup').click(function(){
+			var id = $('input[name=id]').val();
+			//id 유효성 검사
+			
+			
+			$.ajax({
+		        async:true,
+		        type:'POST',
+		        data:id,
+		        url:"dup",
+		        dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+		        success : function(data){
+		            if(data.id){
+		            	alert('회원 가입이 가능한 아이디입니다');
+		            }else{
+		            	alert('해당 아이디는 이미 존재합니다');
+		            }
+		        }
+		    });
+		})
+		
 	})
 	
 	</script>	
@@ -81,6 +104,9 @@
 				<div class="row">
 					<label class="col-4">아이디</label>
 					<input name="id" type="text"class="form-control col-7" placeholder="아이디" >
+				</div>
+				<div>
+					<button type="button" class="btn btn-outline-success offset-4 col-7" id="dup">중복 확인</button>
 				</div>
 				<div class="row">
 					<label class="col-4">비밀번호</label>
