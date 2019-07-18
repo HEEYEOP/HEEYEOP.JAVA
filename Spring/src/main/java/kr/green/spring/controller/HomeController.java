@@ -131,7 +131,10 @@ public class HomeController {
 	public Map<Object, Object> idcheck(@RequestBody String id){
 
 	    Map<Object, Object> map = new HashMap<Object, Object>();
-	    map.put("id", true);
+	    //변수 id에 저장된 아이디가 회원 아이디인지 아닌지 확인하여 isMember변수에 담아 보낸다
+	    boolean isMember = memberService.isMember(id);
+	    System.out.println(isMember);
+	    map.put("isMember", isMember);
 
 	    return map;
 	}

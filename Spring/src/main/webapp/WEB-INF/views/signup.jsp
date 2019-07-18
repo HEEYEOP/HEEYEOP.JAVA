@@ -82,7 +82,7 @@
 		        dataType:"json",
 		        contentType:"application/json; charset=UTF-8",
 		        success : function(data){
-		            if(data.id){
+		            if(data.isMember){
 		            	alert('회원 가입이 가능한 아이디입니다');
 		            }else{
 		            	alert('해당 아이디는 이미 존재합니다');
