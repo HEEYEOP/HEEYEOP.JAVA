@@ -46,6 +46,15 @@ public class HomeController {
 	public String home(Model model){ 
 		logger.info("메인페이지 실행");
 		
+		//임시 비밀번호
+		String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String pw="";
+		for(int i=0; i<8; i++) {
+			int r = (int)(Math.random()*62);
+			pw += str.charAt(r);
+		}
+		System.out.println("비밀 번호 : " +pw);
+		
 		return "home";
 	}
 	
