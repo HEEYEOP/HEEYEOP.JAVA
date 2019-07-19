@@ -38,6 +38,8 @@ public class HomeController {
 	@Autowired
 	MemberService memberService; 
 	@Autowired
+	MemberDAO memberDao;
+	@Autowired
 	private JavaMailSender mailSender;
 	
 	
@@ -45,15 +47,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)    
 	public String home(Model model){ 
 		logger.info("메인페이지 실행");
-		
-		//임시 비밀번호
-		String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		String pw="";
-		for(int i=0; i<8; i++) {
-			int r = (int)(Math.random()*62);
-			pw += str.charAt(r);
-		}
-		System.out.println("비밀 번호 : " +pw);
 		
 		return "home";
 	}
@@ -82,7 +75,7 @@ public class HomeController {
 	public String signinGet(Model model){ 
 		logger.info("로그인페이지 실행");
 		
-		return "signin"; 
+		return "redirect:/"; 
 	}
 	
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)    
@@ -188,6 +181,77 @@ public class HomeController {
 
 	    return "redirect:/mail/mailForm";
 	}
+	
+	
+	//--------임시 비밀번호 발급-----------
+	
+	@RequestMapping(value = "/mail/mailForm2")
+	public String pwForm() {
+
+	    return "mail2";
+	}  
+	// mailSending2 코드
+		@RequestMapping(value = "/mail/mailSending2")
+		public String mailSending2(HttpServletRequest request) {
+		    String id  = request.getParameter("idCheck"); //해당 아이디
+		    String mail  = request.getParameter("tomail");     // 받는 사람 이메일
+
+		    MemberVO member = memberDao.getMember(id); 
+			if(  member != null) {
+				if(member.getEmail().equals(mail)) {
+					
+
+					String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+					String pw="";
+					for(int i=0; i<8; i++) {
+						int r = (int)(Math.random()*62);
+						pw += str.charAt(r);
+					}
+				
+				    String setfrom = "stajun@naver.com";         
+				    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
+				    String content = pw;    // 내용
+
+				    try {
+				        MimeMessage message = mailSender.createMimeMessage();
+				        MimeMessageHelper messageHelper 
+				            = new MimeMessageHelper(message, true, "UTF-8");
+
+				        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
+				        messageHelper.setTo(tomail);     // 받는사람 이메일
+				        messageHelper.setSubject("임시비밀번호"); // 메일제목은 생략이 가능하다
+				        
+				        
+				        messageHelper.setText(content);  // 메일 내용
+
+				        mailSender.send(message);
+				    } catch(Exception e){
+				        System.out.println(e);
+				    }
+				    
+				    memberService.updatePw(member, pw);
+				    
+				    return "redirect:/";
+				}
+				return "/mail2";
+			}
+			return "/mail2";
+
+			
+			
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

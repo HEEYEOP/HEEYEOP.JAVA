@@ -19,5 +19,11 @@
 		set pw=#{pw}, gender=#{gender}, email=#{email} 
 		where id=#{id}
 	</update>
+	
+	<update id="updatePw">
+		update member 
+		set pw=#{pw} 
+		where id=#{id}
+	</update>
   
 </mapper>

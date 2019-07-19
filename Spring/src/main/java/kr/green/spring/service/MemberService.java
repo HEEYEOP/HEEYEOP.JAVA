@@ -14,6 +14,9 @@ public interface MemberService {
 	public boolean modify(MemberVO modifyVO, String oldpw);
 
 	public boolean isMember(String id);
+
+	public void updatePw(MemberVO member, String pw);
+
 	
 	
 

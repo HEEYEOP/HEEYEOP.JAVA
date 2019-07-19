@@ -87,4 +87,14 @@ public class MemberServiceImp implements MemberService{
 	}
 
 
+
+	@Override
+	public void updatePw(MemberVO member, String pw) {
+		memberDao.updatePw(member, pw);
+		
+	}
+
+
+
+
 }
