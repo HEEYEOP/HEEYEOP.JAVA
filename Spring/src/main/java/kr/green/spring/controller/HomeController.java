@@ -1,5 +1,7 @@
 package kr.green.spring.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.spring.dao.MemberDAO;
 import kr.green.spring.service.MemberService;
+import kr.green.spring.service.MemberServiceImp;
 import kr.green.spring.vo.MemberVO;
 
 /**
@@ -37,8 +40,7 @@ public class HomeController {
 	
 	@Autowired
 	MemberService memberService; 
-	@Autowired
-	MemberDAO memberDao;
+	
 	@Autowired
 	private JavaMailSender mailSender;
 	
@@ -164,6 +166,7 @@ public class HomeController {
 	    String title   = request.getParameter("title");      // 제목
 	    String content = request.getParameter("content");    // 내용
 
+	    //memberService.sendMail(tomail, title, contents); // 이 한줄이 밑에 try-catch문을 대체할 수 있음
 	    try {
 	        MimeMessage message = mailSender.createMimeMessage();
 	        MimeMessageHelper messageHelper 
@@ -182,64 +185,58 @@ public class HomeController {
 	    return "redirect:/mail/mailForm";
 	}
 	
+	//-------------------------------------------------------
 	
-	//--------임시 비밀번호 발급-----------
+	@RequestMapping(value = "/password/find") 
+	public String passwordFind() { 
+		
+	    return "member/find"; 
+	}   
 	
-	@RequestMapping(value = "/mail/mailForm2")
-	public String pwForm() {
+	
+	@RequestMapping(value ="/checkemail") 
+	@ResponseBody 
+	public Map<Object, Object> emailcheck(@RequestBody String str){ 
+	    Map<Object, Object> map = new HashMap<Object, Object>(); 
 
-	    return "mail2";
-	}  
-	// mailSending2 코드
-		@RequestMapping(value = "/mail/mailSending2")
-		public String mailSending2(HttpServletRequest request) {
-		    String id  = request.getParameter("idCheck"); //해당 아이디
-		    String mail  = request.getParameter("tomail");     // 받는 사람 이메일
-
-		    MemberVO member = memberDao.getMember(id); 
-			if(  member != null) {
-				if(member.getEmail().equals(mail)) {
-					
-
-					String str = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-					String pw="";
-					for(int i=0; i<8; i++) {
-						int r = (int)(Math.random()*62);
-						pw += str.charAt(r);
-					}
-				
-				    String setfrom = "stajun@naver.com";         
-				    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
-				    String content = pw;    // 내용
-
-				    try {
-				        MimeMessage message = mailSender.createMimeMessage();
-				        MimeMessageHelper messageHelper 
-				            = new MimeMessageHelper(message, true, "UTF-8");
-
-				        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
-				        messageHelper.setTo(tomail);     // 받는사람 이메일
-				        messageHelper.setSubject("임시비밀번호"); // 메일제목은 생략이 가능하다
-				        
-				        
-				        messageHelper.setText(content);  // 메일 내용
-
-				        mailSender.send(message);
-				    } catch(Exception e){
-				        System.out.println(e);
-				    }
-				    
-				    memberService.updatePw(member, pw);
-				    
-				    return "redirect:/";
-				}
-				return "/mail2";
-			}
-			return "/mail2";
-
-			
-			
+	    String [] arr = new String [2]; 
+	    arr = str.split("&"); 
+	    String id = arr[0]; 
+	    String email = "";
+	    try {
+			email = URLDecoder.decode(arr[1], "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+	    
+	    id = memberService.getVal(id);
+	    email = memberService.getVal(email);
+	    
+	    boolean isOk = memberService.checkMember(id,email);
+	    map.put("isOk", isOk);
+	    
+	    return map; 
+	}
+	
+	@RequestMapping(value = "/password/send") 
+	public String passwordSend(String id, String email) { 
+		//비밀번호 생성
+		String newPw = memberService.createPw();
+		
+		//생성된 비밀번호 db에 저장
+		memberService.modify(id,email,newPw);
+		//이메일 발송
+		
+		String title ="변경된 비밀번호입니다";
+		String contents="변경된 비밀번호입니다.\n"+newPw+"\n";
+		
+		memberService.sendMail(email,title,contents);
+		
+	    return "send"; 
+	}
+	
+
 	
 	
 	

@@ -10,6 +10,5 @@ public interface MemberDAO {
 	
 	public void modify(MemberVO modifyVO);
 
-	public void updatePw(MemberVO member, String pw);
 
 }

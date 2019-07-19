@@ -44,7 +44,7 @@
 <body>
 
 	<div>
-		<div class="offset-4 col-4 border border-dark mt-5">
+		<div class="offset-4 col-4 border border-dark mt-5 clearfix">
 			<h1 class="text-center">로그인</h1>
 			<form method="post" action="<%=request.getContextPath()%>/signin">
 				<div class="row">
@@ -59,10 +59,10 @@
 				<div class="offset-8 col-3 clearfix p-0">
 					<button class="btn btn-primary float-right">로그인</button>
 				</div>
+				
+				<a href="<%=request.getContextPath()%>/password/find" class="float-right">비밀번호 찾기</a>
 			</form>
-			<div class="offset-8 col-3 clearfix p-0">
-				<a href="<%=request.getContextPath()%>/mail/mailForm2"><button class="btn btn-primary ">비밀번호찾기</button></a>
-			</div>
+			
 		</div>
 	</div>
 

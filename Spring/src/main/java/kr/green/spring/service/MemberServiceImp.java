@@ -1,6 +1,10 @@
 package kr.green.spring.service;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,8 @@ public class MemberServiceImp implements MemberService{
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
 
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	
 	
@@ -89,10 +95,80 @@ public class MemberServiceImp implements MemberService{
 
 
 	@Override
-	public void updatePw(MemberVO member, String pw) {
-		memberDao.updatePw(member, pw);
+	public String getVal(String id) {
+		String [] arr = id.split("=");
+		if(arr.length == 2)
+			return arr[1];
+		else
+			return "";
+	}
+
+
+
+	@Override
+	public boolean checkMember(String id, String email) {
+		MemberVO user = memberDao.getMember(id);
+		if(user != null && user.getEmail().equals(email)) {
+			return true;
+		}
+		return false;
+	}
+
+
+
+	@Override
+	public String createPw() {
+		
+		String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+		String pw=""; 
+		for(int i=0; i< 8; i++) { 
+			int r = (int)(Math.random()*62); 
+			pw += str.charAt(r); 
+		} 
+		return pw;
+	}
+
+
+
+	@Override
+	public void modify(String id, String email, String newPw) {
+		MemberVO user = memberDao.getMember(id);
+		if(user == null) return;
+		if(!user.getEmail().equals(email)) return;
+		
+		String encodePw = passwordEncoder.encode(newPw);	
+		user.setPw(encodePw); 
+		memberDao.modify(user);
+		
+		
 		
 	}
+
+
+
+	@Override
+	public void sendMail(String email, String title, String contents) {
+	    String setfrom = "아이디@gmail.com"; //여기에 구글 계정 넣어주기         
+
+	    try {
+	        MimeMessage message = mailSender.createMimeMessage();
+	        MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
+
+	        messageHelper.setFrom(setfrom);  // 보내는사람 생략하거나 하면 정상작동을 안함
+	        messageHelper.setTo(email);     // 받는사람 이메일
+	        messageHelper.setSubject(title); // 메일제목은 생략이 가능하다
+	        messageHelper.setText(contents);  // 메일 내용
+
+	        mailSender.send(message);
+	    } catch(Exception e){
+	        System.out.println(e);
+	    }
+		
+	}
+
+
+
+	
 
 
 
