@@ -29,10 +29,6 @@ import kr.green.spring.service.MemberService;
 import kr.green.spring.service.MemberServiceImp;
 import kr.green.spring.vo.MemberVO;
 
-/**
- * Handles requests for the application home page.
- */
-//컨트롤러 어노테이션으로 @Controller가 붙으면 컨트롤러로 인식
 @Controller
 public class HomeController {
 	
@@ -122,7 +118,7 @@ public class HomeController {
 		return "redirect:/member/modify";
 	}
 	
-	//로그아웃 기능//
+	//----------------------3-----------------------------//
 	
 	@RequestMapping(value="/signout")
 	public String signout(HttpServletRequest request) {
@@ -134,7 +130,7 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-	//-------------------------------------------
+	//----------------------4-----------------------------//
 	@RequestMapping(value ="/dup")
 	@ResponseBody
 	public Map<Object, Object> idcheck(@RequestBody String id){
@@ -185,10 +181,19 @@ public class HomeController {
 	    return "redirect:/mail/mailForm";
 	}
 	
-	//-------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	//----------------------5-----------------------------//
+
 	
 	@RequestMapping(value = "/password/find") 
-	public String passwordFind() { 
+	public String passwordFind() {
+		logger.info("비밀번호 찾기 페이지 실행");
 		
 	    return "member/find"; 
 	}   
@@ -197,16 +202,18 @@ public class HomeController {
 	@RequestMapping(value ="/checkemail") 
 	@ResponseBody 
 	public Map<Object, Object> emailcheck(@RequestBody String str){ 
-	    Map<Object, Object> map = new HashMap<Object, Object>(); 
+		System.out.println("이거 모야모야 찍히는거야 모야모야");
+	    System.out.println(str); 	//앞에 ajax로 id랑 email을 넘겨받는뎅 그거를 str로 뭉쳐서 받음 그래서 id=   &email=   이런형태의 값을 갖고있음
+		HashMap<Object, Object> map = new HashMap<Object, Object>(); 
+	    
 
-	    String [] arr = new String [2]; 
-	    arr = str.split("&"); 
+	    String [] arr = str.split("&"); 
 	    String id = arr[0]; 
-	    String email = "";
+	    String email = "";	//여기서 arr[1]를 바로 넣어주지 않는 이유는 한글이 깨지기 때문에 밑에 try-catch문으로 예외처리를 시켜줬음
+	    
 	    try {
 			email = URLDecoder.decode(arr[1], "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    

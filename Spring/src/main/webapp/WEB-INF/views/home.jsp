@@ -11,7 +11,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
-	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
 	
@@ -35,9 +34,9 @@
 	}
 	</style>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$('input[name=id]').focus();
-	})
+		$(document).ready(function(){
+			$('input[name=id]').focus(); 		//새로고침하면 아이디 입력창 활성화 되는 기능
+		})
 	</script>
 	
 </head>

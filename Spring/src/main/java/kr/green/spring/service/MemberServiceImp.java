@@ -121,7 +121,7 @@ public class MemberServiceImp implements MemberService{
 		
 		String str ="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
 		String pw=""; 
-		for(int i=0; i< 8; i++) { 
+		for(int i=0; i<=7; i++) { 
 			int r = (int)(Math.random()*62); 
 			pw += str.charAt(r); 
 		} 
