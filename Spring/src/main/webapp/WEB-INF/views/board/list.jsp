@@ -28,11 +28,11 @@
 	
 	<div class="form-group col-3 float-right">
 	  <select class="form-control" id="perPageNum">
-	    <option>기본</option>
-	    <option>2</option>
-	    <option>4</option>
-	    <option>6</option>
-	    <option>8</option>
+	    <option value="10">기본</option>
+	    <option <c:if test="${pageMaker.criteria.perPageNum ==2}">selected</c:if> >2</option>
+	    <option <c:if test="${pageMaker.criteria.perPageNum ==4}">selected</c:if> >4</option>
+	    <option <c:if test="${pageMaker.criteria.perPageNum ==6}">selected</c:if> >6</option>
+	    <option <c:if test="${pageMaker.criteria.perPageNum ==8}">selected</c:if> >8</option>
 	  </select>
 	</div>
 	
@@ -65,7 +65,7 @@
 	    
 	    <c:if test="${pageMaker.prev}">
 	        <li class="page-item">
-	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Previous</a>
+	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.startPage-1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">Previous</a>
 	        </li>
 	    </c:if>
 	    
@@ -73,13 +73,13 @@
 	    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="index">
 	        <c:if test="${pageMaker.criteria.page == index }">
 		        <li class="page-item active">
-		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
+		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">${index}</a>
 		        </li>
 	        </c:if>
 	        
 	        <c:if test="${pageMaker.criteria.page != index}">
 		        <li class="page-item">
-		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">${index}</a>
+		            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${index}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">${index}</a>
 		        </li>
 	        </c:if>
 	    </c:forEach>
@@ -87,7 +87,7 @@
 	    
 	    <c:if test="${pageMaker.next}">
 	        <li class="page-item">
-	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}">Next</a>
+	            <a class="page-link" href="<%=request.getContextPath()%>/board/list?page=${pageMaker.endPage+1}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">Next</a>
 	        </li>
 	    </c:if>
 	    
