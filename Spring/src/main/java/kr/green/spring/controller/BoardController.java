@@ -122,9 +122,6 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	
-	
-	
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)    
 	public String deleteGet(Model model, BoardVO obj){ 
@@ -137,8 +134,6 @@ public class BoardController {
 			
 		}
 		return "redirect:/board/list";
-		
-		
 	
 	}
 	
