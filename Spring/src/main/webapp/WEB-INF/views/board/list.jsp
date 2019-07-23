@@ -6,18 +6,18 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
-<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-<meta charset="UTF-8">
-<title>board</title>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#perPageNum').change(function(){
-			location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val(); 	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	<meta charset="UTF-8">
+	<title>게시판board</title>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#perPageNum').change(function(){
+				location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val(); 	
+			})
 		})
-	})
-</script>
+	</script>
 </head>
 
 
