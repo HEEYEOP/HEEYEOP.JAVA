@@ -3,11 +3,21 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <meta charset="UTF-8">
 <title>board</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#perPageNum').change(function(){
+			location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val(); 	
+		})
+	})
+</script>
 </head>
 
 
@@ -15,6 +25,16 @@
 	<h1>게시판</h1>
 	<h6>현재 로그인 정보 ${user}</h6>  <!-- 여기 user는 세션에서 가져온 user정보라는 것을 잊지말자 -->
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
+	
+	<div class="form-group col-3 float-right">
+	  <select class="form-control" id="perPageNum">
+	    <option>기본</option>
+	    <option>2</option>
+	    <option>4</option>
+	    <option>6</option>
+	    <option>8</option>
+	  </select>
+	</div>
 	
 	
 	
