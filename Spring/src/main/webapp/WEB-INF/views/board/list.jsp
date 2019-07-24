@@ -13,7 +13,7 @@
 	<title>게시판board</title>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#perPageNum').change(function(){
+			$('#perPageNum').change(function(){			/* 게시글셀렉박스 변경됬을때, 보낼 url */
 				var search = $('input[name=search]').val();
 				var type = $('select[name=type]').val();
 				location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val()+'&type='+type+ '&search='+ search; 	
@@ -25,9 +25,10 @@
 
 <body>
 	<h1>게시판</h1>
-	<h6>현재 로그인 정보 ${user}</h6>  <!-- 여기 user는 세션에서 가져온 user정보라는 것을 잊지말자 -->
+	<h6>현재 로그인 정보 ${user}</h6>
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	
+	<!-- 보여지는 게시글 갯수 변경하는 셀렉박스 -->
 	<div class="form-group col-3 float-right">
 	  <select class="form-control" id="perPageNum">
 	    <option value="10">기본</option>
@@ -49,7 +50,6 @@
 			<th width="10%">조회수</th>
 		</tr>
 		
-		<!-- c:foreach를 쓸 수 있는 이유는 가장 맨위에 uri를 추가해주었기 때문  -->
 		<c:forEach var="board" items="${list}">
 			<tr>
 					<th>${board.num}</th>
