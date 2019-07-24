@@ -39,7 +39,7 @@
   			<input type="text" class="form-control" name="title" value="${board.file}" readonly>
 		</div>
 		
-		<a href="<%=request.getContextPath()%>/board/list">
+		<a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&type=${cri.type}&search=${cri.search}&perPageNum=${cri.perPageNum}">
 			<button type="button" class="btn btn-outline-primary">목록</button>
 		</a>
 		<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">

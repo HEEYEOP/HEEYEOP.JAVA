@@ -60,7 +60,7 @@ public class BoardController {
 	} 
 	
 	@RequestMapping(value = "/display", method=RequestMethod.GET)    
-	public String boardDisplayGet(Model model, BoardVO obj){ //여기서 BoardVO obj는  기본키값 num= @@@ 을 넘긴다.
+	public String boardDisplayGet(Model model, BoardVO obj, Criteria cri){ //여기서 BoardVO obj는  기본키값 num= @@@ 을 넘긴다.
 		logger.info("게시판 디스플레이페이지 실행");
 		
 		//조회수 증가 (display는 게시물 하나를 상세보는 페이지이기때문에 조회수를 증가시키는 일을 해줘야한다)
@@ -68,6 +68,8 @@ public class BoardController {
 		
 		BoardVO bVO = boardService.getBoard(obj);
 		model.addAttribute("board", bVO);
+		
+		model.addAttribute("cri", cri);
 		
 		
 		return "board/display";

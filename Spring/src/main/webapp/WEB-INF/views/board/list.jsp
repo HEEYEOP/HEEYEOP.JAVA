@@ -14,7 +14,9 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#perPageNum').change(function(){
-				location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val(); 	
+				var search = $('input[name=search]').val();
+				var type = $('select[name=type]').val();
+				location.href ='<%=request.getContextPath()%>/board/list?perPageNum='+$(this).val()+'&type='+type+ '&search='+ search; 	
 			})
 		})
 	</script>
@@ -51,7 +53,7 @@
 		<c:forEach var="board" items="${list}">
 			<tr>
 					<th>${board.num}</th>
-					<th><a href="<%= request.getContextPath() %>/board/display?num=${board.num}">${board.title}</a></th> <%-- href="/spring/board/display" --%>
+					<th><a href="<%= request.getContextPath() %>/board/display?num=${board.num}&page=${pageMaker.criteria.page}&type=${pageMaker.criteria.type}&search=${pageMaker.criteria.search}&perPageNum=${pageMaker.criteria.perPageNum}">${board.title}</a></th> <%-- href="/spring/board/display" --%>
 					<th>${board.writer}</th>
 					<th>${board.registered}</th>
 					<th>${board.views}</th>
