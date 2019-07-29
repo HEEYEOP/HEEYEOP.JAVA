@@ -148,6 +148,7 @@ public class BoardController {
 		System.out.println("새로 등록할 게시물   "+ bVO); 
 		
 		if(file2.getOriginalFilename().length() != 0) {
+			
 			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 			bVO.setFile(file);
 		}

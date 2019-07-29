@@ -4,23 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
-	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-
-<title>수정페이지</title>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#X').click(function(){
-			$(this).prev().val("");
+	<meta charset="UTF-8">
+		<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
+		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+	
+	<title>수정페이지</title>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#X').click(function(){
+				$(this).prev().val("");
+			})
 		})
-	})
-
-
-</script>
-
+	
+	</script>
 </head>
+
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
@@ -62,8 +61,6 @@
 		<a href="<%=request.getContextPath()%>/board/list">
 			<button type="button" class="btn btn-outline-primary">목록</button>
 		</a>
-		
-		
 		
 		<br>${board}
 	
