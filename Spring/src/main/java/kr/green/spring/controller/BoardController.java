@@ -21,6 +21,7 @@ import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.service.MemberService;
+import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 import kr.green.spring.vo.MemberVO;
 
@@ -126,8 +127,8 @@ public class BoardController {
 		logger.info("게시물 등록");
 		System.out.println("새로 등록할 게시물   "+ bVO); 
 		
-		String file = uploadFile(file2.getOriginalFilename(),file2.getBytes());
 		if(file2.getOriginalFilename().length() != 0) {
+			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
 			bVO.setFile(file);
 		}
 		boardService.insertBoard(bVO);
@@ -152,12 +153,12 @@ public class BoardController {
 	//---------------------------------------------------------------------29월
 	
 	
-	private String uploadFile(String name, byte[] data)
-			throws Exception{
+	private String uploadFile(String name, byte[] data) throws Exception{
+		
 		    /* 고유한 파일명을 위해 UUID를 이용 */
 			UUID uid = UUID.randomUUID();
 			String savaName = uid.toString() + "_" + name;
-			File target = new File(uploadPath, savaName);
+			File target = new File(uploadPath, savaName); // 이거 이해못해뜜
 			FileCopyUtils.copy(data, target);
 			return savaName;
 		}
