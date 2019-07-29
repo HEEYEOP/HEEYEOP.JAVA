@@ -13,7 +13,7 @@
 
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<div class="container-fluid">
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
   			<label >제목</label>
   			<input type="text" class="form-control" name="title" >
@@ -36,8 +36,8 @@
   			<input type="text" class="form-control"  readonly >
 		</div>
 		<div class="form-group">
-  			<label >파일</label>
-  			<input type="text" class="form-control" name="file" >
+  			<label >첨부파일</label>
+  			<input type="file" class="form-control" name="file2" >
 		</div>
 		
 		

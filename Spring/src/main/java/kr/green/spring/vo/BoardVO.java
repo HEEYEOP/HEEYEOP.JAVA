@@ -60,6 +60,16 @@ public class BoardVO {
 	public String getFile() {
 		return file;
 	}
+	public String getFileName() {
+		//UUID가 제거되도록 코드를 작성
+		if(file == null)
+			return "";
+		int index = file.indexOf("_");
+		return file.substring(index+1);
+		
+	}
+	
+	
 	public void setFile(String file) {
 		this.file = file;
 	}

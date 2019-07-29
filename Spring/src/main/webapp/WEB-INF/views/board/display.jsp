@@ -24,19 +24,19 @@
 		
 		<div class="form-group">
   			<label >작성자</label>
-  			<input type="text" class="form-control" name="title" value="${board.writer}" readonly >
+  			<input type="text" class="form-control" name="writer" value="${board.writer}" readonly >
 		</div>
 		<div class="form-group">
   			<label >작성일</label>
-  			<input type="text" class="form-control" name="title" value="${board.registered}" readonly >
+  			<input type="text" class="form-control" name="refistered" value="${board.registered}" readonly >
 		</div>
 		<div class="form-group">
   			<label >조회수</label>
-  			<input type="text" class="form-control" name="title" value="${board.views}" readonly >
+  			<input type="text" class="form-control" name="views" value="${board.views}" readonly >
 		</div>
 		<div class="form-group">
-  			<label >파일</label>
-  			<input type="text" class="form-control" name="title" value="${board.file}" readonly>
+  			<label >첨부파일</label>
+  			<input type="text" class="form-control" name="file" value="${board.fileName}" readonly>
 		</div>
 		
 		<a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&type=${cri.type}&search=${cri.search}&perPageNum=${cri.perPageNum}">

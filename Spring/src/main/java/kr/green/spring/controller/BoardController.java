@@ -1,7 +1,11 @@
 package kr.green.spring.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -9,7 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
@@ -26,6 +32,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
+	@Resource
+	private String uploadPath;
 	
 
 	
@@ -114,12 +122,15 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)    
-	public String boardRegisterPost(Model model, BoardVO bVO){ 
+	public String boardRegisterPost(MultipartFile file2, BoardVO bVO) throws IOException, Exception{ 
 		logger.info("게시물 등록");
 		System.out.println("새로 등록할 게시물   "+ bVO); 
 		
+		String file = uploadFile(file2.getOriginalFilename(),file2.getBytes());
+		if(file2.getOriginalFilename().length() != 0) {
+			bVO.setFile(file);
+		}
 		boardService.insertBoard(bVO);
-		 
 		
 		return "redirect:/board/list";
 	}
@@ -138,6 +149,18 @@ public class BoardController {
 		return "redirect:/board/list";
 	
 	}
+	//---------------------------------------------------------------------29월
+	
+	
+	private String uploadFile(String name, byte[] data)
+			throws Exception{
+		    /* 고유한 파일명을 위해 UUID를 이용 */
+			UUID uid = UUID.randomUUID();
+			String savaName = uid.toString() + "_" + name;
+			File target = new File(uploadPath, savaName);
+			FileCopyUtils.copy(data, target);
+			return savaName;
+		}
 	
 	
 	
