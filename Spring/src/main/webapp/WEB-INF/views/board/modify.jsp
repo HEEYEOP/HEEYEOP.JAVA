@@ -5,15 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<script type="text/javascript" src="//code.jquery.com/jquery-3.4.1.js"></script>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 <title>수정페이지</title>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#X').click(function(){
+			$(this).prev().val("");
+		})
+	})
+
+
+</script>
+
 </head>
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/nav.jsp"></jsp:include>
 	<div class="container-fluid">
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
   			<label >제목</label>
   			<input type="text" class="form-control" name="title" value="${board.title}" >
@@ -36,8 +48,9 @@
   			<input type="text" class="form-control" name="views" value="${board.views}" readonly >
 		</div>
 		<div class="form-group">
-  			<label >파일</label>
-  			<input type="text" class="form-control" name="file" value="${board.file}" >
+  			<label >첨부파일</label>
+  			<input type="text" class="form-control" name="file" value="${board.fileName}"readonly><button type="button" class="float-right del" id="X">X</button>
+  			<input type="file" class="form-control" name="file2">
 		</div>
 		
 		

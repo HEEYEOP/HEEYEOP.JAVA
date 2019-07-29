@@ -1,16 +1,23 @@
 package kr.green.spring.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -102,13 +109,25 @@ public class BoardController {
 	
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)    
-	public String boardModifyPost(Model model, BoardVO bVO, HttpServletRequest r){ 
+	public String boardModifyPost(Model model, BoardVO bVO, HttpServletRequest r, MultipartFile file2) throws IOException, Exception{ 
 		logger.info("게시물 수정 실행");
 		System.out.println("수정하여 업데이트 할 게시물   "+bVO);
 		
+		if(file2.getOriginalFilename().length() != 0) {
+			String file = UploadFileUtils.uploadFile(uploadPath, file2.getOriginalFilename(),file2.getBytes());
+			bVO.setFile(file);
+		}else { //첨부파일에 추가한 파일이 없는 경우
+			
+			if(bVO.getFile().length() == 0) {
+				bVO.setFile("");
+			}else {
+				BoardVO tmp = boardService.getBoard(bVO);
+				bVO.setFile(tmp.getFile());
+			}
+		}
+
 		boardService.updateBoard(bVO, r); //현재 세션에 저장되어 있는(로그인한 사람의 정보) 사람의 정보와 업데이트 하려고 하는 작성자와 같은지 확인해라
-		
-		 model.addAttribute("num", bVO.getNum());
+		model.addAttribute("num", bVO.getNum()); 
 		return "redirect:/board/display";
 	}
 	
@@ -116,6 +135,7 @@ public class BoardController {
 	@RequestMapping(value = "/register", method = RequestMethod.GET)    
 	public String boardRegisterGet(Model model){ 
 		logger.info("등록페이지 실행");
+		
 		
 		
 		return "/board/register";
@@ -152,18 +172,28 @@ public class BoardController {
 	}
 	//---------------------------------------------------------------------29월
 	
-	
-	private String uploadFile(String name, byte[] data) throws Exception{
-		
-		    /* 고유한 파일명을 위해 UUID를 이용 */
-			UUID uid = UUID.randomUUID();
-			String savaName = uid.toString() + "_" + name;
-			File target = new File(uploadPath, savaName); // 이거 이해못해뜜
-			FileCopyUtils.copy(data, target);
-			return savaName;
-		}
-	
-	
+	@ResponseBody
+	@RequestMapping("/download")
+	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+	    InputStream in = null;
+	    ResponseEntity<byte[]> entity = null;
+	    try{
+	        HttpHeaders headers = new HttpHeaders();
+	        in = new FileInputStream(uploadPath+fileName);
+
+	        fileName = fileName.substring(fileName.indexOf("_")+1);
+	        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+	        headers.add("Content-Disposition",  "attachment; filename=\"" 
+				+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+	    }catch(Exception e) {
+	        e.printStackTrace();
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally {
+	        in.close();
+	    }
+	    return entity;
+	}
 	
 
 }

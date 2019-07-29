@@ -36,7 +36,7 @@
 		</div>
 		<div class="form-group">
   			<label >첨부파일</label>
-  			<input type="text" class="form-control" name="file" value="${board.fileName}" readonly>
+  			<a href="<%=request.getContextPath()%>/board/download?fileName=${board.file}">${board.fileName}</a>  			
 		</div>
 		
 		<a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&type=${cri.type}&search=${cri.search}&perPageNum=${cri.perPageNum}">
