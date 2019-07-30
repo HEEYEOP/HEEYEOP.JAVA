@@ -12,8 +12,9 @@
 	<title>관리자_회원등급관리 페이지</title>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
-			
+			$('select').change(function(){
+				location.href='<%=request.getContextPath()%>/admin/user/update?'+$(this).val()
+			})
 			
 		})
 	
@@ -38,11 +39,12 @@
 					<th>${member.id}</th>
 					<th>${member.name}</th>
 					<th>${member.email}</th>
-					<th>${member.authority}</th>
+					<th name="authority">${member.authority}</th>
 					<th>
-						<select>
-							<option value="USER" <c:if test="${member.authority eq 'USER'}">selected</c:if>>USER</option>
-							<option value="ADMIN" <c:if test="${member.authority eq 'ADMIN'}">selected</c:if>>ADMIN</option>
+					<input type="hidden" value="${member.id}">
+						<select id="select">
+							<option value="id=${member.id}&authority=USER&page=${pageMaker.criteria.page}"<c:if test="${member.authority eq 'USER'}">selected</c:if>>USER</option>
+							<option value="id=${member.id}&authority=ADMIN&page=${pageMaker.criteria.page}"<c:if test="${member.authority eq 'ADMIN'}">selected</c:if>>ADMIN</option>
 						</select>
 					</th>
 				</tr>

@@ -31,5 +31,13 @@
 		select count(*) from member
 	</select>
 	
+	<update id="updateAuthority">
+		update member 
+		set authority = #{authority}
+		where id=#{id}
+	</update>
+	
+	
+	
   
 </mapper>

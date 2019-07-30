@@ -183,6 +183,16 @@ public class MemberServiceImp implements MemberService{
 
 
 
+	@Override
+	public void updateAuthority(MemberVO mVO) {
+		memberDao.updateAuthority(mVO);
+		
+	}
+		
+	
+
+
+
 	
 
 

@@ -17,5 +17,7 @@ public interface MemberDAO {
 
 	public int getCountMember();
 
+	public void updateAuthority(MemberVO mVO);
+
 
 }

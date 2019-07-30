@@ -32,6 +32,9 @@ public interface MemberService {
 
 	public int getCountMember();
 
+	public void updateAuthority(MemberVO mVO);
+
+
 
 
 }
