@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,8 +52,11 @@ public class AdminController {
 	
 	@RequestMapping(value = "/admin/user/update", method = RequestMethod.GET)    
 	public String adminUserUpdateGet(Model model, Criteria cri, MemberVO mVO){ 
+		logger.info("관리자_회원등급수정 실행");
+		System.out.println(mVO);
+		System.out.println(cri);
+
 		memberService.updateAuthority(mVO);
-		
 		model.addAttribute("page", cri.getPage());
 		return "redirect:/admin/user/list";
 	}

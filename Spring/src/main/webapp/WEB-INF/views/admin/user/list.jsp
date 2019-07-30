@@ -10,8 +10,10 @@
 		
 	<meta charset="UTF-8">
 	<title>관리자_회원등급관리 페이지</title>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
 			$('select').change(function(){
 				location.href='<%=request.getContextPath()%>/admin/user/update?'+$(this).val()
 			})
@@ -35,14 +37,12 @@
 		
 		<c:forEach var="member" items="${list}">
 				<tr>
-						
 					<th>${member.id}</th>
 					<th>${member.name}</th>
 					<th>${member.email}</th>
-					<th name="authority">${member.authority}</th>
+					<th>${member.authority}</th>
 					<th>
-					<input type="hidden" value="${member.id}">
-						<select id="select">
+						<select>
 							<option value="id=${member.id}&authority=USER&page=${pageMaker.criteria.page}"<c:if test="${member.authority eq 'USER'}">selected</c:if>>USER</option>
 							<option value="id=${member.id}&authority=ADMIN&page=${pageMaker.criteria.page}"<c:if test="${member.authority eq 'ADMIN'}">selected</c:if>>ADMIN</option>
 						</select>
