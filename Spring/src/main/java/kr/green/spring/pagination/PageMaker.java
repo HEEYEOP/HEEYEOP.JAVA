@@ -14,7 +14,7 @@ public class PageMaker {
 	public void calcData() {
 		/* starPage와 endPage는 현재 페이지 정보인 criteria와 displayPageNum을 이용하여 계산
 		 * displayPageNum이 10이고 현재 페이지가 31페이지면 startPage = 31, endPage = 40이 되도록 계산  따라서 endPage =40*/
-		endPage = (int) (Math.ceil(criteria.getPage()/(double) displayPageNum)*displayPageNum);
+		endPage = (int)(Math.ceil(criteria.getPage()/(double) displayPageNum)*displayPageNum);
 		
 		startPage = (endPage - displayPageNum)+1;
 		/* 총 콘텐츠 갯수를 이용하여 마지막 페이지 번호를 계산 */

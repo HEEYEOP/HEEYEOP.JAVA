@@ -20,5 +20,16 @@
 		where id=#{id}
 	</update>
 	
+	<select id="getAllMember" resultType="kr.green.spring.vo.MemberVO">
+		select * 
+		from member 
+		order by id asc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="getCountMember" resultType="int">
+		select count(*) from member
+	</select>
+	
   
 </mapper>

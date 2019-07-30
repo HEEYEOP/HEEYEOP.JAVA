@@ -1,7 +1,10 @@
 package kr.green.spring.service;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Service;
 
+import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.MemberVO;
 
 
@@ -24,6 +27,10 @@ public interface MemberService {
 	public void modify(String id, String email, String newPw);
 
 	public void sendMail(String email, String title, String contents);
+
+	public ArrayList<MemberVO> getAllMember(Criteria cri);
+
+	public int getCountMember();
 
 
 

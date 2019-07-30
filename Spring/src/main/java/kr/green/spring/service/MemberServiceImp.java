@@ -1,5 +1,7 @@
 package kr.green.spring.service;
 
+import java.util.ArrayList;
+
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring.dao.MemberDAO;
+import kr.green.spring.pagination.Criteria;
 import kr.green.spring.vo.MemberVO;
 
 @Service
@@ -164,6 +167,18 @@ public class MemberServiceImp implements MemberService{
 	        System.out.println(e);
 	    }
 		
+	}
+
+
+
+	@Override
+	public ArrayList<MemberVO> getAllMember(Criteria cri) {
+		return memberDao.getAllMember(cri);
+	}
+
+	@Override
+	public int getCountMember() {
+		return memberDao.getCountMember();
 	}
 
 

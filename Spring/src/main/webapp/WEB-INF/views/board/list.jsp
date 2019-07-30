@@ -110,12 +110,15 @@
 		<button type="submit" class="btn btn-outline-primary">검색</button>
 	</form>
 	
-	
-	
-	
 	<a href="<%=request.getContextPath()%>/board/register?writer=${user.id}">
 			<button type="button" class="btn btn-outline-primary">등록</button>
 	</a>
+	
+	<div>
+		<c:if test="${user.authority eq 'ADMIN'}">
+		 <a href="<%=request.getContextPath()%>/admin/user/list">회원등급관리</a>
+		</c:if>
+	</div>
 
 </body>
 </html>

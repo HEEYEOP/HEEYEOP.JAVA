@@ -28,6 +28,7 @@ import kr.green.spring.pagination.Criteria;
 import kr.green.spring.pagination.PageMaker;
 import kr.green.spring.service.BoardService;
 import kr.green.spring.service.MemberService;
+import kr.green.spring.service.PageMakerService;
 import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVO;
 import kr.green.spring.vo.MemberVO;
@@ -42,6 +43,8 @@ public class BoardController {
 	BoardService boardService;
 	@Resource
 	private String uploadPath;
+	@Autowired
+	PageMakerService pageMakerService;
 	
 
 	
@@ -51,24 +54,12 @@ public class BoardController {
 		
 		//cri.setPerPageNum(2); 	//여기서 cri의 PerPage만 설정해주는 이유는, 사실 기본생성자를 통해서 자동으로 다 기본설정되지만 내가 코드 테스트를 편하게 하기위해서 일부러 2라고 설정해주었다
 		ArrayList<BoardVO> boardList = boardService.getBoardList(cri);
-		PageMaker pm = new PageMaker();
-		System.out.println("이건 크리크리"+ cri);
 		
-		//pm의 현재 페이지 정보 설정
-		pm.setCriteria(cri);
-		//pm의 displayPageNum 설정
-		pm.setDisplayPageNum(5); //displayPageNum은 페이지네이션의 갯수
-		//pm의 총 게시글 수 설정
 		int totalCount = boardService.getTotalCount(cri);
-		pm.setTotalCount(totalCount);
-		
-		System.out.println("이건 피엠피엠"+ pm);
-
-		
+	
+		PageMaker pm = pageMakerService.getPageMaker(5,cri,totalCount);
 		
 		model.addAttribute("pageMaker", pm);
-		
-		
 		model.addAttribute("list", boardList);
 		
 		
