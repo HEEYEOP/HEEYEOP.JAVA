@@ -116,7 +116,8 @@
 	
 	<div>
 		<c:if test="${user.authority eq 'ADMIN'}">
-		 <a href="<%=request.getContextPath()%>/admin/user/list">회원등급관리</a>
+		 <a href="<%=request.getContextPath()%>/admin/user/list">회원등급관리</a><br>
+		 <a href="<%=request.getContextPath()%>/admin/board/list">게시판관리</a>
 		</c:if>
 	</div>
 

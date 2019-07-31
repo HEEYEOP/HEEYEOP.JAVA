@@ -23,6 +23,11 @@ public class BoardServiceImp implements BoardService {
 		
 		return boardDao.getBoardList(cri);
 	}
+	@Override
+	public ArrayList<BoardVO> getBoardListAdmin(Criteria cri) {
+		return boardDao.getBoardListAdmin(cri);
+	}
+
 
 	@Override
 	public BoardVO getBoard(BoardVO obj) {
@@ -75,6 +80,17 @@ public class BoardServiceImp implements BoardService {
 	public int getTotalCount(Criteria cri) {
 		return boardDao.getTotalCount(cri);
 	}
+	@Override
+	public int getTotalCountAdmin(Criteria cri) {
+		
+		return boardDao.getTotalCountAdmin(cri);
+	}
+	@Override
+	public void updateValid(BoardVO bVO) {
+		boardDao.updateValid(bVO);
+		
+	}
+
 
 	
 

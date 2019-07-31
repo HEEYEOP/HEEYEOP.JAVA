@@ -16,6 +16,15 @@
 		  limit #{pageStart}, #{perPageNum}
 	</select>
 	
+	<select id="getBoardListAdmin" resultType="kr.green.spring.vo.BoardVO">
+		select * from board   
+			<if test="type == 1"> where title like concat('%',#{search},'%')</if>
+			<if test="type == 2"> where contents like concat('%',#{search},'%')</if>
+			<if test="type == 3"> where writer like concat('%',#{search},'%')</if>
+		  order by num desc 
+		  limit #{pageStart}, #{perPageNum}
+	</select>
+	
 	
 		
 	
@@ -56,6 +65,16 @@
 			<if test="type == 3">and writer like concat('%',#{search},'%')</if>
 	</select>
 	
+	<select id="getTotalCountAdmin" resultType="int">
+		select count(*) from board  
+			<if test="type == 1">where title like concat('%',#{search},'%')</if>
+			<if test="type == 2">where contents like concat('%',#{search},'%')</if>
+			<if test="type == 3">where writer like concat('%',#{search},'%')</if>
+	</select>
+	
+	<update id="updateValid">
+		update board set valid=#{valid} where num=#{num}
+	</update>
 	
 	
 	

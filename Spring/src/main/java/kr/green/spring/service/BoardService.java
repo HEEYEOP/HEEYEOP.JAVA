@@ -10,6 +10,8 @@ import kr.green.spring.vo.BoardVO;
 public interface BoardService {
 
 	ArrayList<BoardVO> getBoardList(Criteria cri);
+	
+	ArrayList<BoardVO> getBoardListAdmin(Criteria cri);
 
 	BoardVO getBoard(BoardVO obj);
 
@@ -22,6 +24,11 @@ public interface BoardService {
 	void deleteBoard(BoardVO bVO);
 
 	int getTotalCount(Criteria cri);
+
+	int getTotalCountAdmin(Criteria cri);
+
+	void updateValid(BoardVO bVO);
+
 
 
 
