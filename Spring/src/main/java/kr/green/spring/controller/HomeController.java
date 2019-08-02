@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.dao.MemberDAO;
 import kr.green.spring.service.MemberService;
@@ -246,6 +247,13 @@ public class HomeController {
 
 	
 	
+	 @RequestMapping(value={"/test/home","/test/home.do"})
+	    public ModelAndView openTilesView(ModelAndView mv) throws Exception{
+	        mv.setViewName("/test/home");
+	        mv.addObject("setHeader", "타일즈");
+	        return mv;
+	    }
+
 	
 	
 	
