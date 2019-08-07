@@ -158,7 +158,7 @@ public class HomeController {
 	@RequestMapping(value = "/mail/mailSending")
 	public String mailSending(HttpServletRequest request) {
 
-	    String setfrom = "stajun@naver.com";         
+	    String setfrom = "stajun@naver.com";          
 	    String tomail  = request.getParameter("tomail");     // 받는 사람 이메일
 	    String title   = request.getParameter("title");      // 제목
 	    String content = request.getParameter("content");    // 내용
